@@ -23,7 +23,7 @@
 
   (mapped-devices
     (list (mapped-device
-            (source (uuid "f91121f9-991f-a2d5-7bada2abdce1"))
+            (source (uuid "f91121f9-991f-4fe8-a2d5-7bada2abdce1"))
             (target "cryptroot")
             (type luks-device-mapping))))
 
@@ -58,7 +58,7 @@
                      (guix-service-type config =>
                        (guix-configuration (inherit config)
                                            (substitute-urls
-                                             (cons* "https://substitues.nonguix.org"
+                                             (cons* "https://substitutes.nonguix.org"
                                                     %default-substitute-urls))
                                            (authorized-keys
                                              (cons* (list (local-file "./signing-key.pub"))
