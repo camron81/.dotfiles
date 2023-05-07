@@ -53,13 +53,14 @@
 
   (packages (cons* nss-certs nano %base-packages))
 
-  (services
-    (modify-services %base-services
-                     (guix-service-type config =>
-                       (guix-configuration (inherit config)
-                                           (substitute-urls
-                                             (cons* "https://substitutes.nonguix.org"
-                                                    %default-substitute-urls))
-                                           (authorized-keys
-                                             (cons* (list (local-file "./signing-key.pub"))
-                                                    %default-authorized-guix-keys)))))))
+  (services (modify-services
+              %base-services
+              (guix-service-type config =>
+                                 (guix-configuration
+                                   (inherit config)
+                                   (substitute-urls
+                                     (cons* "https://substitutes.nonguix.org"
+                                            %default-substitute-urls))
+                                   (authorized-keys
+                                     (cons* (local-file "./signing-key.pub")
+                                            %default-authorized-guix-keys)))))))
