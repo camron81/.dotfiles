@@ -23,14 +23,14 @@
 
   (mapped-devices
     (list (mapped-device
-            (source (uuid ""))
+            (source (uuid "f1867b3b-9328-49cc-a06a-f3fe3617d76a"))
             (target "cryptroot")
             (type luks-device-mapping))))
 
   (file-systems
     (cons* (file-system
              (mount-point "/boot/efi")
-             (device (uuid "" 'fat32))
+             (device (uuid "D16E-48AC" 'fat32))
              (type "vfat"))
            (file-system
              (mount-point "/")
@@ -50,8 +50,6 @@
              (home-directory "/home/ethan")
              (supplementary-groups '("wheel" "netdev" "audio" "video")))
            %base-user-accounts))
-
-  (skeletons '())
 
   (packages (cons* nss-certs nano %base-packages))
 
