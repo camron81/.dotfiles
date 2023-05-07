@@ -2,7 +2,7 @@
              (nongnu packages linux)
              (nongnu system linux-initrd))
 
-(use-package-modules certs nano)
+(use-package-modules certs nano version-control)
 
 (operating-system
   (host-name "guix-desktop")
@@ -53,7 +53,7 @@
 
   (skeletons '())
 
-  (packages (cons* nss-certs nano %base-packages))
+  (packages (cons* git nano nss-certs %base-packages))
 
   (services (modify-services
               %base-services
