@@ -1,0 +1,43 @@
+Consider home-manager vs. guix-home non-package support...
+
+WORKS::
+beancount
+blesh
+clang => (may support clang-tools too)
+cmake
+distrobox
+epiphany
+exa
+fd
+gcc
+gdb
+gnome-suite
+janet
+ledger
+lf
+libtool
+man-pages
+neovim
+neovim-packer
+megasync => megacmd::guix (could actually be better)
+picard
+qbittorrent
+racket
+ripgrep
+sxiv (won't work in wayland)
+valgrind
+yt-dlp
+zathura
+
+OLD::
+alacritty
+
+BORKED::
+brave => firefox::nonguix (hardened with arkenfox)
+eww
+foliate
+freetube
+jpm => (could be included via janet)
+logseq
+qogir-icon-theme
+qogir-theme
