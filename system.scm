@@ -4,6 +4,8 @@
 
 (use-package-modules certs nano version-control)
 
+(use-service-modules networking)
+
 (operating-system
   (host-name "guix-desktop")
   (timezone "Europe/London")
@@ -51,18 +53,19 @@
              (supplementary-groups '("wheel" "netdev" "audio" "video")))
            %base-user-accounts))
 
-  (skeletons '())
-
   (packages (cons* git nano nss-certs %base-packages))
 
-  (services (modify-services
-              %base-services
-              (guix-service-type config =>
-                                 (guix-configuration
-                                   (inherit config)
-                                   (substitute-urls
-                                     (cons* "https://substitutes.nonguix.org"
-                                            %default-substitute-urls))
-                                   (authorized-keys
-                                     (cons* (local-file "./signing-key.pub")
-                                            %default-authorized-guix-keys)))))))
+  (services
+   (cons*
+     (service dhcp-client-service-type)
+     (modify-services
+       %base-services
+       (guix-service-type config =>
+                          (guix-configuration
+                            (inherit config)
+                            (substitute-urls
+                              (cons* "https://substitutes.nonguix.org"
+                                     %default-substitute-urls))
+                            (authorized-keys
+                              (cons* (local-file "./signing-key.pub")
+                                     %default-authorized-guix-keys))))))))
