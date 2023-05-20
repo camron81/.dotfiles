@@ -1,4 +1,3 @@
 (specifications->manifest
   '(;; Neovim
-    "fennel"
-    "neovim"))
+    "fennel"))

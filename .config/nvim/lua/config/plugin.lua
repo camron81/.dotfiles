@@ -1,4 +1,4 @@
-local _2afile_2a = "nvim/fnl/config/plugin.fnl"
+local _2afile_2a = ".config/nvim/fnl/config/plugin.fnl"
 local _2amodule_name_2a = "magic.plugin"
 local _2amodule_2a
 do

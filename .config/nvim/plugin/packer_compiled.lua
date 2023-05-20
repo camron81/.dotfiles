@@ -89,10 +89,10 @@ _G.packer_plugins = {
     path = "/home/ethan/.local/share/nvim/site/pack/packer/start/guile.vim",
     url = "https://github.com/HiPhish/guile.vim"
   },
-  ["parinfer-rust"] = {
+  ["nvim-parinfer"] = {
     loaded = true,
-    path = "/home/ethan/.local/share/nvim/site/pack/packer/start/parinfer-rust",
-    url = "https://github.com/eraserhd/parinfer-rust"
+    path = "/home/ethan/.local/share/nvim/site/pack/packer/start/nvim-parinfer",
+    url = "https://github.com/gpanders/nvim-parinfer"
   }
 }
 
