@@ -2,19 +2,13 @@
              (gnu home services)
              (gnu home services shells)
              (gnu services)
-             (guix gexp))
+             (guix gexp)
+             (srfi srfi-98))
 
-(define bash-profile-text
-  "for p in $GUIX_USER_PROFILES/*; do
-    profile=$p/$(basename \"$p\")
-    if [ -f \"$profile\"/etc/profile ]; then
-        GUIX_PROFILE=\"$profile\"
-        . \"$GUIX_PROFILE\"/etc/profile
-    fi
-    unset profile
-done
-
-[ \"$(tty)\" = \"/dev/tty1\" ] && exec sway")
+(define bash-profile-path
+  (string-append
+     (get-environment-variable "HOME")
+     "/.dotfiles/bash-profile.sh"))
 
 (home-environment 
   (services 
@@ -29,5 +23,4 @@ done
              '(("cp" . "cp -riv")
                ("mv" . "mv -iv")
                ("rm" . "rm -iv")))
-           (bash-profile (list (plain-file "bash-profile"
-                                           bash-profile-text))))))))
+           (bash-profile (list (local-file bash-profile-path))))))))
