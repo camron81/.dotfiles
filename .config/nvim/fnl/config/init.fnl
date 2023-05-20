@@ -11,12 +11,9 @@
   :HiPhish/guile.vim {}
   :Olical/aniseed {}
   :Olical/conjure {}
-  :eraserhd/parinfer-rust {})
+  :gpanders/nvim-parinfer {})
 
 ;; Conjure
 (set nvim.g.conjure#filetype#scheme "conjure.client.guile.socket")
 (set nvim.g.conjure#client#guile#socket#pipename "/home/ethan/guile.socket")
 
-;; Parinfer
-(vim.cmd "NoMatchParen")
-(set nvim.g.parinfer_dylib_path "/home/ethan/parinfer-rust-linux.so")
