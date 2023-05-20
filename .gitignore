@@ -1,1 +1,3 @@
 .config/guix/current
+.config/nvim/lua
+.config/nvim/plugin
