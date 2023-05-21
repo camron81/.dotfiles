@@ -2,19 +2,35 @@
              (gnu home services)
              (gnu home services shells)
              (gnu services)
-             (guix gexp)
-             (srfi srfi-98))
+             (guix gexp))
 
-(define bash-profile-path
-  (string-append
-     (get-environment-variable "HOME")
-     "/.dotfiles/bash-profile.sh"))
+(define (dotfile-path path)
+  (string-append (getenv "HOME")
+                 "/.dotfiles/"
+                 path))
+
+(define bash-profile-file
+  (local-file (dotfile-path "bash-profile.sh")))
+
+(define guix-config-files
+  `(("guix/home" ,(local-file (dotfile-path ".config/guix/home") #:recursive? #t))
+    ("guix/manifests" ,(local-file (dotfile-path ".config/guix/manifests") #:recursive? #t))
+    ("guix/system" ,(local-file (dotfile-path ".config/guix/system") #:recursive? #t))
+    ("guix/templates" ,(local-file (dotfile-path ".config/guix/templates") #:recursive? #t))
+    ("guix/channels.scm" ,(local-file (dotfile-path ".config/guix/channels.scm")))
+    ("guix/signing-key.pub" ,(local-file (dotfile-path ".config/guix/signing-key.pub")))))
+
+(define nvim-config-files
+  `(("nvim/init.lua" ,(local-file (dotfile-path ".config/nvim/init.lua")))
+    ("nvim/fnl" ,(local-file (dotfile-path ".config/nvim/fnl") #:recursive? #t))))
+
+(define sway-config-files
+  `(("sway/config" ,(local-file (dotfile-path ".config/sway/config")))))
 
 (home-environment 
   (services 
     (list 
-      ; $GUIX_USER_PROFILES needs set before .bash_profile is sourced
-      (simple-service 'guix-user-profile-env-var-service
+      (simple-service 'setup-environment-variables-service
                       home-environment-variables-service-type
                       '(("GUIX_USER_PROFILES" . "$XDG_DATA_HOME/guix-profiles")))
       (service home-bash-service-type
@@ -23,4 +39,9 @@
              '(("cp" . "cp -riv")
                ("mv" . "mv -iv")
                ("rm" . "rm -iv")))
-           (bash-profile (list (local-file bash-profile-path))))))))
+           (bash-profile (list bash-profile-file))))
+     (simple-service 'xdg-config-files-service
+                     home-xdg-configuration-files-service-type
+                     (append guix-config-files
+                             nvim-config-files
+                             sway-config-files)))))
