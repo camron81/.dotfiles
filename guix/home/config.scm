@@ -13,19 +13,19 @@
   (local-file (dotfile-path "bash-profile.sh")))
 
 (define guix-config-files
-  `(("guix/home" ,(local-file (dotfile-path ".config/guix/home") #:recursive? #t))
-    ("guix/manifests" ,(local-file (dotfile-path ".config/guix/manifests") #:recursive? #t))
-    ("guix/system" ,(local-file (dotfile-path ".config/guix/system") #:recursive? #t))
-    ("guix/templates" ,(local-file (dotfile-path ".config/guix/templates") #:recursive? #t))
-    ("guix/channels.scm" ,(local-file (dotfile-path ".config/guix/channels.scm")))
-    ("guix/signing-key.pub" ,(local-file (dotfile-path ".config/guix/signing-key.pub")))))
+  `(("guix/home" ,(local-file (dotfile-path "guix/home") #:recursive? #t))
+    ("guix/manifests" ,(local-file (dotfile-path "guix/manifests") #:recursive? #t))
+    ("guix/system" ,(local-file (dotfile-path "guix/system") #:recursive? #t))
+    ("guix/templates" ,(local-file (dotfile-path "guix/templates") #:recursive? #t))
+    ("guix/channels.scm" ,(local-file (dotfile-path "guix/channels.scm")))
+    ("guix/signing-key.pub" ,(local-file (dotfile-path "guix/signing-key.pub")))))
 
 (define nvim-config-files
-  `(("nvim/init.lua" ,(local-file (dotfile-path ".config/nvim/init.lua")))
-    ("nvim/fnl" ,(local-file (dotfile-path ".config/nvim/fnl") #:recursive? #t))))
+  `(("nvim/init.lua" ,(local-file (dotfile-path "nvim/init.lua")))
+    ("nvim/fnl" ,(local-file (dotfile-path "nvim/fnl") #:recursive? #t))))
 
 (define sway-config-files
-  `(("sway/config" ,(local-file (dotfile-path ".config/sway/config")))))
+  `(("sway/config" ,(local-file (dotfile-path "sway/config")))))
 
 (home-environment 
   (services 
