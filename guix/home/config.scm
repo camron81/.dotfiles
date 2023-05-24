@@ -5,26 +5,25 @@
              (guix gexp))
 
 ; Should you do type checking...?
-(define (dotfile-path path)
+(define (dotfiles-path-append path)
   (string-append (getenv "HOME") "/.dotfiles/" path))
 
-(define (xdg-config-spec spec)
-  (let ((path (car spec))
+(define (dotfiles-symlink file-spec)
+  (let ((path (car file-spec))
         (recur
-          (cond ((equal? (length spec) 1) #f)
-                ((equal? (length spec) 2) (cdr spec)))))
-    (list path (local-file (dotfile-path path) #:recursive? recur))))
-
-(define (xdg-config-list specs)
-  (map xdg-config-spec specs))
+          (cond ((equal? (length file-spec) 1) #f)
+                ((equal? (length file-spec) 2) (cdr file-spec)))))
+    (list path (local-file (dotfiles-path-append path) 
+                           #:recursive? recur))))
 
 (define bash-profile-file
-  (local-file (dotfile-path "bash-profile.sh")))
+  (local-file 
+    (dotfiles-path-append "bash-profile.sh")))
 
 (define config-files
-  (xdg-config-list '(("guix/channels.scm")
-                     ("nvim" #t)
-                     ("sway/config"))))
+  (map dotfiles-symlink '(("guix/channels.scm")
+                          ("nvim" #t)
+                          ("sway/config"))))
 
 (home-environment 
   (services 
