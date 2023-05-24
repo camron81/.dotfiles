@@ -10,7 +10,8 @@ do
   _2amodule_2a["aniseed/locals"] = {}
   _2amodule_locals_2a = (_2amodule_2a)["aniseed/locals"]
 end
-local keymaps, nvim, options, plugins = require("config.keymaps"), require("aniseed.nvim"), require("config.options"), require("config.plugins")
+local autoload = (require("aniseed.autoload")).autoload
+local keymaps, nvim, options, plugins = autoload("config.keymaps"), autoload("aniseed.nvim"), autoload("config.options"), autoload("config.plugins")
 do end (_2amodule_locals_2a)["keymaps"] = keymaps
 _2amodule_locals_2a["nvim"] = nvim
 _2amodule_locals_2a["options"] = options

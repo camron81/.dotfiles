@@ -4,7 +4,6 @@
              (gnu services)
              (guix gexp))
 
-; Should you do type checking...?
 (define (dotfiles-path-append path)
   (string-append (getenv "HOME") "/.dotfiles/" path))
 
@@ -22,7 +21,8 @@
 
 (define config-files
   (map dotfiles-symlink '(("guix/channels.scm")
-                          ("nvim" #t)
+			  ("nvim/init.lua")
+			  ("nvim/fnl" #t)
                           ("sway/config"))))
 
 (home-environment 

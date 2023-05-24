@@ -1,5 +1,5 @@
 (module config.options
-  {require {nvim aniseed.nvim}})
+  {autoload {nvim aniseed.nvim}})
 
 (set nvim.o.clipboard "unnamedplus")
 (set nvim.o.expandtab true)

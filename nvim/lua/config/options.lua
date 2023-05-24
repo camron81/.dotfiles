@@ -10,7 +10,8 @@ do
   _2amodule_2a["aniseed/locals"] = {}
   _2amodule_locals_2a = (_2amodule_2a)["aniseed/locals"]
 end
-local nvim = require("aniseed.nvim")
+local autoload = (require("aniseed.autoload")).autoload
+local nvim = autoload("aniseed.nvim")
 do end (_2amodule_locals_2a)["nvim"] = nvim
 nvim.o.clipboard = "unnamedplus"
 nvim.o.expandtab = true
