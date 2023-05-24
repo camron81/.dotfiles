@@ -1,4 +1,4 @@
-(use-modules (templates system)
+(use-modules (system base)
              (gnu))
 
 (operating-system

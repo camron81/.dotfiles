@@ -28,7 +28,6 @@
     '(("guix/home" #t)
       ("guix/manifests" #t)
       ("guix/system" #t)
-      ("guix/templates" #t)
       ("guix/channels.scm")
       ("guix/signing-key.pub"))))
 

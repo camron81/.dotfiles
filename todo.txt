@@ -1,0 +1,34 @@
+Guix:
+  Base:
+    - shutdown/ reboot without sudo [ ]
+    - minimal sway config [ ]
+    - autologin to user [ ]
+    - minimal kernel/firmware/microcode [ ]
+    - alternative filesystem [ ]
+
+  Manifessts:
+    - Guile script for managing your user profiles [ ]
+ 
+  Home:
+    - Guix git config [ ]
+    - Guix redshift do not use geoclue just set as London [ ]
+
+  Extra:
+    - Fully explore the API see how deep you can craft [ ]
+
+Neovim:
+  - Neovim from scratch playlist convert into fennel [ ]
+  - See if there's anything extra you want to add [ ]
+
+Sway:
+  - Sway configuration in Scheme [ ]
+
+Firefox:
+  - Areknfox setup [ ]
+  - bitwarden/ vim extensions [ ]
+
+Desktop:
+  - Applications [ ]
+  - GTK themes/ icons [ ]
+  - Distrobox [ ]
+  - Packaging missing... [ ] 

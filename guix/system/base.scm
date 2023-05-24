@@ -1,4 +1,4 @@
-(define-module (templates system)
+(define-module (system base)
   #:use-module (gnu)
   #:use-module (gnu services desktop)
   #:use-module (gnu services xorg)
