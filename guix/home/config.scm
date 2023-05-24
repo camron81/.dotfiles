@@ -6,9 +6,7 @@
 
 ; Should you do type checking...?
 (define (dotfile-path path)
-  (string-append (getenv "HOME")
-                 "/.dotfiles/"
-                 path))
+  (string-append (getenv "HOME") "/.dotfiles/" path))
 
 (define (xdg-config-spec spec)
   (let ((path (car spec))
@@ -23,22 +21,10 @@
 (define bash-profile-file
   (local-file (dotfile-path "bash-profile.sh")))
 
-(define guix-config-files
-  (xdg-config-list
-    '(("guix/home" #t)
-      ("guix/manifests" #t)
-      ("guix/system" #t)
-      ("guix/channels.scm")
-      ("guix/signing-key.pub"))))
-
-(define nvim-config-files
-  (xdg-config-list
-    '(("nvim/init.lua")
-      ("nvim/fnl" #t))))
-
-(define sway-config-files
-  (xdg-config-list
-    '(("sway/config"))))
+(define config-files
+  (xdg-config-list '(("guix/channels.scm")
+                     ("nvim" #t)
+                     ("sway/config"))))
 
 (home-environment 
   (services 
@@ -55,6 +41,4 @@
            (bash-profile (list bash-profile-file))))
      (simple-service 'xdg-config-files-service
                      home-xdg-configuration-files-service-type
-                     (append guix-config-files
-                             ;nvim-config-files
-                             sway-config-files)))))
+                     config-files))))

@@ -1,4 +1,4 @@
-local _2afile_2a = "/home/ethan/.config/nvim/fnl/config/options.fnl"
+local _2afile_2a = ".config/nvim/fnl/config/options.fnl"
 local _2amodule_name_2a = "config.options"
 local _2amodule_2a
 do
@@ -36,5 +36,4 @@ nvim.o.writebackup = false
 nvim.o.wrap = false
 nvim.o.scrolloff = 8
 nvim.o.sidescrolloff = 8
-vim.cmd("set iskeyword+=-")
 return _2amodule_2a

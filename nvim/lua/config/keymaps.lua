@@ -1,4 +1,4 @@
-local _2afile_2a = "/home/ethan/.config/nvim/fnl/config/keymaps.fnl"
+local _2afile_2a = ".config/nvim/fnl/config/keymaps.fnl"
 local _2amodule_name_2a = "config.keymaps"
 local _2amodule_2a
 do

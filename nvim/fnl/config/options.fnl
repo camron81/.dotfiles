@@ -25,5 +25,3 @@
 (set nvim.o.wrap false)
 (set nvim.o.scrolloff 8)
 (set nvim.o.sidescrolloff 8)
-
-(vim.cmd "set iskeyword+=-")
