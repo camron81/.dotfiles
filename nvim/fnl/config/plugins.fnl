@@ -1,4 +1,4 @@
-(module magic.plugin
+(module config.plugins
   {autoload {a aniseed.core
              packer packer}})
 

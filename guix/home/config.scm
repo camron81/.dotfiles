@@ -56,5 +56,5 @@
      (simple-service 'xdg-config-files-service
                      home-xdg-configuration-files-service-type
                      (append guix-config-files
-                             nvim-config-files
+                             ;nvim-config-files
                              sway-config-files)))))
