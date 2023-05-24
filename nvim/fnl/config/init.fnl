@@ -5,7 +5,7 @@
 (set nvim.g.mapleader " ")
 (set nvim.g.maplocalleader ",")
 
-(nvim.ex.highlight "NormalFloat ctermbg=grey guibg=grey")
+(nvim.ex.highlight "NormalFloat ctermbg=black guibg=black")
 
 (plugin.use
   :HiPhish/guile.vim {}

@@ -4,28 +4,42 @@
              (gnu services)
              (guix gexp))
 
+; Should you do type checking...?
 (define (dotfile-path path)
   (string-append (getenv "HOME")
                  "/.dotfiles/"
                  path))
 
+(define (xdg-config-spec spec)
+  (let ((path (car spec))
+        (recur
+          (cond ((equal? (length spec) 1) #f)
+                ((equal? (length spec) 2) (cdr spec)))))
+    (list path (local-file (dotfile-path path) #:recursive? recur))))
+
+(define (xdg-config-list specs)
+  (map xdg-config-spec specs))
+
 (define bash-profile-file
   (local-file (dotfile-path "bash-profile.sh")))
 
 (define guix-config-files
-  `(("guix/home" ,(local-file (dotfile-path "guix/home") #:recursive? #t))
-    ("guix/manifests" ,(local-file (dotfile-path "guix/manifests") #:recursive? #t))
-    ("guix/system" ,(local-file (dotfile-path "guix/system") #:recursive? #t))
-    ("guix/templates" ,(local-file (dotfile-path "guix/templates") #:recursive? #t))
-    ("guix/channels.scm" ,(local-file (dotfile-path "guix/channels.scm")))
-    ("guix/signing-key.pub" ,(local-file (dotfile-path "guix/signing-key.pub")))))
+  (xdg-config-list
+    '(("guix/home" #t)
+      ("guix/manifests" #t)
+      ("guix/system" #t)
+      ("guix/templates" #t)
+      ("guix/channels.scm")
+      ("guix/signing-key.pub"))))
 
 (define nvim-config-files
-  `(("nvim/init.lua" ,(local-file (dotfile-path "nvim/init.lua")))
-    ("nvim/fnl" ,(local-file (dotfile-path "nvim/fnl") #:recursive? #t))))
+  (xdg-config-list
+    '(("nvim/init.lua")
+      ("nvim/fnl" #t))))
 
 (define sway-config-files
-  `(("sway/config" ,(local-file (dotfile-path "sway/config")))))
+  (xdg-config-list
+    '(("sway/config"))))
 
 (home-environment 
   (services 
