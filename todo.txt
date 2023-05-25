@@ -17,8 +17,9 @@ Guix:
     - Fully explore the API see how deep you can craft [ ]
 
 Neovim:
-  - Completion UI improvements [ ]
+  - Completion UI improvements [X]
   - LSP support (not necessary for now since Scheme/ Fennel coverage is slim) [ ] 
+  - treesitter is borked in Guix since it requires headers to compile directly via :TSInstall [ ]
   - See if there's anything extra you want to add [ ]
 
 Sway:
