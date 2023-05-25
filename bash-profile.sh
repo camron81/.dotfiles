@@ -7,4 +7,6 @@ for p in $GUIX_USER_PROFILES/*; do
 	unset profile
 done
 
-[ "$(tty)" = "/dev/tty1" ] && exec sway
+if [ "$(tty)" = "/dev/tty1" ] && [ -z "${WAYLAND_DISPLAY}" ] && [ "${XDG_VTNR}" -eq 1 ]; then
+  exec sway
+fi

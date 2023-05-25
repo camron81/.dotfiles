@@ -20,7 +20,8 @@
     (dotfiles-path-append "bash-profile.sh")))
 
 (define config-files
-  (map dotfiles-symlink '(("guix/channels.scm")
+  (map dotfiles-symlink '(("foot/foot.ini")
+                          ("guix/channels.scm")
                           ("nvim/init.lua")
                           ("nvim/fnl" #t)
                           ("sway/config"))))

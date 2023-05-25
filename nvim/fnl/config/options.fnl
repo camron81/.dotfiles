@@ -18,6 +18,7 @@
 (set nvim.o.splitright true)
 (set nvim.o.swapfile false)
 (set nvim.o.tabstop 2)
+(set nvim.o.termguicolors true)
 (set nvim.o.timeoutlen 1000)
 (set nvim.o.undofile true)
 (set nvim.o.updatetime 300)

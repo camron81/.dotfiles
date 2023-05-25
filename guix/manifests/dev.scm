@@ -1,2 +1,4 @@
 (specifications->manifest
-  '("fennel"))
+  '(;Neovim
+    "fennel"
+    "wl-clipboard"))
