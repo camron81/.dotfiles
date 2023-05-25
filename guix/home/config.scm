@@ -21,8 +21,8 @@
 
 (define config-files
   (map dotfiles-symlink '(("guix/channels.scm")
-			  ("nvim/init.lua")
-			  ("nvim/fnl" #t)
+                          ("nvim/init.lua")
+                          ("nvim/fnl" #t)
                           ("sway/config"))))
 
 (home-environment 

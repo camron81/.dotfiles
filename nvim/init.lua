@@ -5,7 +5,7 @@ local fmt = string.format
 local pack_path = fn.stdpath("data") .. "/site/pack"
 
 function ensure (user, repo)
-	local install_path = fmt("%s/bootstrap/start/%s", pack_path, repo)
+	local install_path = fmt("%s/packer/start/%s", pack_path, repo)
 	if fn.empty(fn.glob(install_path)) > 0 then
 		execute(fmt("!git clone https://github.com/%s/%s/ %s", user, repo, install_path))
 		execute(fmt("packadd %s", repo))
