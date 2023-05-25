@@ -3,7 +3,6 @@
 
 (let [option-table 
       {:clipboard "unnamedplus"
-       :completeopt "menuone,noselect"
        :expandtab true
        :fileencoding "utf-8"
        :ignorecase true

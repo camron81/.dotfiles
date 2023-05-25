@@ -17,7 +17,8 @@ Guix:
     - Fully explore the API see how deep you can craft [ ]
 
 Neovim:
-  - Neovim from scratch playlist convert into fennel [ ]
+  - Completion UI improvements [ ]
+  - LSP support (not necessary for now since Scheme/ Fennel coverage is slim) [ ] 
   - See if there's anything extra you want to add [ ]
 
 Sway:

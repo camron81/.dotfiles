@@ -1,4 +1,9 @@
 (specifications->manifest
-  '(;Neovim
-    "fennel"
-    "wl-clipboard"))
+  '(;Neovim - Configuration
+    "fennel"              
+    ; Neovim - Telescope
+    "fd"                  
+    "ripgrep"             
+    ; Neovim - System Clipboard
+    "wl-clipboard"))      
+    

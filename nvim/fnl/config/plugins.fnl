@@ -29,6 +29,8 @@
   :hrsh7th/cmp-path {}
   :hrsh7th/nvim-cmp {:mod :cmp}
   :lewis6991/impatient.nvim {}
+  :nvim-telescope/telescope.nvim {:mod :telescope :requires [[:nvim-lua/plenary.nvim]]}
+  ;:nvim-treesitter/nvim-treesitter {:mod :treesitter :run ":TSUpdate"}
   :rebelot/kanagawa.nvim {:mod :kanagawa}
   :wbthomason/packer.nvim {})
 
