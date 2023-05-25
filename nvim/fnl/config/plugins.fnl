@@ -31,6 +31,7 @@
   :lewis6991/impatient.nvim {}
   :nvim-telescope/telescope.nvim {:mod :telescope :requires [[:nvim-lua/plenary.nvim]]}
   :rebelot/kanagawa.nvim {:mod :kanagawa}
+  :terrortylor/nvim-comment {:config (fn [] (let [nv-comment (require :nvim_comment)] (nv-comment.setup)))}
   :wbthomason/packer.nvim {}
   :windwp/nvim-autopairs {:mod :autopairs})
   ;:nvim-treesitter/nvim-treesitter {:mod :treesitter :run ":TSUpdate"}

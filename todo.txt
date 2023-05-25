@@ -1,10 +1,14 @@
 Guix:
   Base:
+    - swap Ctrl and Caps lock [ ]
+    - Increase text holding speed... thingy (xset I think) [ ]
     - shutdown/ reboot without sudo [ ]
     - minimal sway config [ ]
     - autologin to user [ ]
     - minimal kernel/firmware/microcode [ ]
     - alternative filesystem [ ]
+    - compare with NixOS configuration what else do you need to copy! [ ]
+    - A guixified PS1 (add the Guix icon from nerd-fonts and whatever else fun stuff) look at Guix's default PS1 set somewhere in the early shell profile [ ]
 
   Manifessts:
     - Guile script for managing your user profiles [ ]
@@ -20,6 +24,8 @@ Neovim:
   - Completion UI improvements [X]
   - LSP support (not necessary for now since Scheme/ Fennel coverage is slim) [ ] 
   - treesitter is borked in Guix since it requires headers to compile directly via :TSInstall [ ]
+  - Continue with the tutorials [ ]
+  - Review the plugins that Olical use in his dotfiles for inspo [ ]
   - See if there's anything extra you want to add [ ]
 
 Sway:
