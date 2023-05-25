@@ -1,28 +1,32 @@
 (module config.options
   {autoload {nvim aniseed.nvim}})
 
-(set nvim.o.clipboard "unnamedplus")
-(set nvim.o.expandtab true)
-(set nvim.o.fileencoding "utf-8")
-(set nvim.o.hlsearch true)
-(set nvim.o.ignorecase true)
-(set nvim.o.mouse "a")
-(set nvim.o.number true)
-(set nvim.o.pumheight 10)
-(set nvim.o.shiftwidth 2)
-(set nvim.o.showmode false)
-(set nvim.o.showtabline 2)
-(set nvim.o.smartcase true)
-(set nvim.o.smartindent true)
-(set nvim.o.splitbelow true)
-(set nvim.o.splitright true)
-(set nvim.o.swapfile false)
-(set nvim.o.tabstop 2)
-(set nvim.o.termguicolors true)
-(set nvim.o.timeoutlen 1000)
-(set nvim.o.undofile true)
-(set nvim.o.updatetime 300)
-(set nvim.o.writebackup false)
-(set nvim.o.wrap false)
-(set nvim.o.scrolloff 8)
-(set nvim.o.sidescrolloff 8)
+(let [option-table 
+      {:clipboard "unnamedplus"
+       :completeopt "menuone,noselect"
+       :expandtab true
+       :fileencoding "utf-8"
+       :ignorecase true
+       :mouse "a"
+       :number true
+       :pumheight 10
+       :shiftwidth 2
+       :showmode false
+       :showtabline 2
+       :smartcase true
+       :smartindent true
+       :splitbelow true
+       :splitright true
+       :swapfile false
+       :tabstop 2
+       :termguicolors true
+       :timeoutlen 1000
+       :undofile true
+       :updatetime 500
+       :writebackup false
+       :wrap false
+       :scrolloff 8
+       :sidescrolloff 8}]
+
+  (each [key value (pairs option-table)]
+    (tset nvim.o key value)))
