@@ -23,6 +23,7 @@
   :Olical/aniseed {}
   :Olical/conjure {}
   :PaterJason/cmp-conjure {}
+  :folke/which-key.nvim {}
   :gpanders/nvim-parinfer {}
   :hrsh7th/cmp-buffer {}
   :hrsh7th/cmp-cmdline {}
@@ -38,6 +39,10 @@
   :windwp/nvim-autopairs {:mod "autopairs"})
   ;:nvim-treesitter/nvim-treesitter {:mod :treesitter :run ":TSUpdate"}
 
+(let [(ok? gitsigns) (pcall require :gitsigns)]
+  (when ok?
+    (gitsigns.setup)))
+
 (let [(ok? kanagawa) (pcall require :kanagawa)]
   (when ok?
     (kanagawa.load "dragon")))
@@ -46,6 +51,6 @@
   (when ok?
     (nv-comment.setup)))
 
-(let [(ok? gitsigns) (pcall require :gitsigns)]
+(let [(ok? which-key) (pcall require :which-key)]
   (when ok?
-    (gitsigns.setup)))
+    (which-key.setup)))

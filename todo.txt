@@ -23,12 +23,14 @@ Guix:
     - Fully explore the API see how deep you can craft [ ]
 
 Neovim:
-  - nvim-tree [ ]
-  - LSP support (not necessary for now since Scheme/ Fennel coverage is slim) [ ] 
-  - treesitter is borked in Guix since it requires headers to compile directly via :TSInstall [ ]
-  - Continue with the tutorials [ ]
-  - Review the plugins that Olical use in his dotfiles for inspo [ ]
-  - See if there's anything extra you want to add [ ]
+  - which-key [ ]
+  - leap.nvim [ ]
+  - LSP Support [ ]
+  - Treesitter [ ]
+  - Null-ls [ ]
+  - Compile command (similar to Emacs <space>cc) [ ]
+  - Debugging (dap/dap-ui) [ ]
+  - Git support (neogit/ fugutive) [ ]
 
 Sway:
   - Sway configuration in Scheme [ ]

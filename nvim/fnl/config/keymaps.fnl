@@ -29,10 +29,11 @@
     [:n :<C-Left> ":vertical resize -2<cr>"]
     [:n :<C-Right> ":vertical resize +2<cr>"]
     ; Buffer Management
-    ; New blank buffer...
     [:n :<leader>bn ":bnext<cr>"]
     [:n :<leader>bp ":bprevious<cr>"]
     [:n :<leader>bq ":bdelete!<cr>"]
+    ; Packer Commands
+    [:n :<leader>ps ":PackerSync<cr>"]
     ;Visual Mode
     [:v :< :<gv]
     [:v :> :>gv]
@@ -40,8 +41,12 @@
     [:v :<A-k> ":m .-2<cr>==gv"]
     [:v :p "_dP"]
     ; Terminal Mode
-    [:t :<C-h> "<C-\\><C-N><C-w>h"]
-    [:t :<C-j> "<C-\\><C-N><C-w>j"]
-    [:t :<C-k> "<C-\\><C-N><C-w>k"]
-    [:t :<C-l> "<C-\\><C-N><C-w>l"]]]
+    [:n :<leader>ts ":split | :terminal<cr>"]
+    [:n :<leader>tv ":vsplit | :terminal<cr>"]
+    [:t :<esc> "<C-\\><C-n>"]
+    [:t :<C-e> "<C-\\><C-n>"]
+    [:t :<C-h> "<C-\\><C-n><C-w>h"]
+    [:t :<C-j> "<C-\\><C-n><C-w>j"]
+    [:t :<C-k> "<C-\\><C-n><C-w>k"]
+    [:t :<C-l> "<C-\\><C-n><C-w>l"]]]
   (mapping.set-keymaps keymap-list))
