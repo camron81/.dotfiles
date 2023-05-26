@@ -1,5 +1,6 @@
 (module config.plugins.telescope
-  {autoload {nvim aniseed.nvim}})
+  {autoload {nvim aniseed.nvim
+             mapping lib.mapping}})
 
 (let [(ok? telescope) (pcall require :telescope)]
   (when ok?
@@ -18,7 +19,6 @@
                       :<Up> actions.move_selection_previous
                       :<C-n> actions.cycle_history_next
                       :<C-p> actions.cycle_history_prev}}}})
-    
       (let [keymap-list
              [[:n :<leader>fb ":Telescope buffers<cr>"]
               [:n :<leader>fc ":Telescope commands<cr>"]
@@ -27,8 +27,4 @@
               [:n :<leader>fk ":Telescope keymaps<cr>"]
               [:n :<leader>fm ":Telescope man_pages<cr>"]
               [:n :<leader>fo ":Telescope vim_options<cr>"]]]
-        (each [_ keymap (ipairs keymap-list)]
-          (nvim.set_keymap (. keymap 1)
-                           (. keymap 2)
-                           (. keymap 3)
-                           {:noremap true :silent true}))))))
+        (mapping.set-keymaps keymap-list)))))

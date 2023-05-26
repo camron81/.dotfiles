@@ -1,5 +1,6 @@
 (module config.keymaps
-  {autoload {nvim aniseed.nvim}})
+  {autoload {nvim aniseed.nvim
+             mapping lib.mapping}})
 
 ;; Local Leader
 (set nvim.g.mapleader " ")
@@ -8,11 +9,9 @@
 (let 
   [keymap-list 
    [[:n :<space> :<nop>]
-    [:n :<leader>vw ":w<cr>"]
     [:n :<leader>vq ":q<cr>"]
+    [:n :<leader>vs ":w<cr>"]
     [:n :<leader>vwq ":wq<cr>"]
-    [:n :<leader>e ":Lex 30<cr>"]
-    [:n :<leader>E ":Ex<cr>"]
     [:i :<C-e> :<esc>]
     ; Window Management
     [:n :<leader>wv :<C-w>v]
@@ -39,10 +38,10 @@
     [:v :> :>gv]
     [:v :<A-j> ":m .+2<cr>==gv"]
     [:v :<A-k> ":m .-2<cr>==gv"]
-    [:v :p "_dP"]]]
-  
-  (each [_ keymap (ipairs keymap-list)]
-    (nvim.set_keymap (. keymap 1)
-                     (. keymap 2)
-                     (. keymap 3)
-                     {:noremap true :silent true})))
+    [:v :p "_dP"]
+    ; Terminal Mode
+    [:t :<C-h> "<C-\\><C-N><C-w>h"]
+    [:t :<C-j> "<C-\\><C-N><C-w>j"]
+    [:t :<C-k> "<C-\\><C-N><C-w>k"]
+    [:t :<C-l> "<C-\\><C-N><C-w>l"]]]
+  (mapping.set-keymaps keymap-list))

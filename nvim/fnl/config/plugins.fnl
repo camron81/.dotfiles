@@ -2,7 +2,7 @@
   {autoload {a aniseed.core
              : packer}})
 
-(defn safe-require-plugin-config [name]
+(defn- safe-require-plugin-config [name]
   (let [(ok? val-or-err) (pcall require (.. :config.plugins. name))]
     (when (not ok?)
       (print (.. "config error: " val-or-err)))))
@@ -27,11 +27,25 @@
   :hrsh7th/cmp-buffer {}
   :hrsh7th/cmp-cmdline {}
   :hrsh7th/cmp-path {}
-  :hrsh7th/nvim-cmp {:mod :cmp}
+  :hrsh7th/nvim-cmp {:mod "cmp"}
+  :lewis6991/gitsigns.nvim {}
   :lewis6991/impatient.nvim {}
-  :nvim-telescope/telescope.nvim {:mod :telescope :requires [[:nvim-lua/plenary.nvim]]}
-  :rebelot/kanagawa.nvim {:mod :kanagawa}
-  :terrortylor/nvim-comment {:config (fn [] (let [nv-comment (require :nvim_comment)] (nv-comment.setup)))}
+  :nvim-telescope/telescope.nvim {:mod "telescope" :requires [[:nvim-lua/plenary.nvim]]}
+  :nvim-tree/nvim-tree.lua {:mod "nvim-tree" :requires [[:nvim-tree/nvim-web-devicons]]}
+  :rebelot/kanagawa.nvim {}
+  :terrortylor/nvim-comment {}
   :wbthomason/packer.nvim {}
-  :windwp/nvim-autopairs {:mod :autopairs})
+  :windwp/nvim-autopairs {:mod "autopairs"})
   ;:nvim-treesitter/nvim-treesitter {:mod :treesitter :run ":TSUpdate"}
+
+(let [(ok? kanagawa) (pcall require :kanagawa)]
+  (when ok?
+    (kanagawa.load "dragon")))
+
+(let [(ok? nv-comment) (pcall require :nvim_comment)]
+  (when ok?
+    (nv-comment.setup)))
+
+(let [(ok? gitsigns) (pcall require :gitsigns)]
+  (when ok?
+    (gitsigns.setup)))

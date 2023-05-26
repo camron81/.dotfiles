@@ -2,7 +2,8 @@
   {autoload {nvim aniseed.nvim}})
 
 (let [option-table 
-      {:clipboard "unnamedplus"
+      {:autochdir true
+       :clipboard "unnamedplus"
        :expandtab true
        :fileencoding "utf-8"
        :ignorecase true
@@ -11,7 +12,7 @@
        :pumheight 10
        :shiftwidth 2
        :showmode false
-       :showtabline 2
+       :showtabline 0
        :smartcase true
        :smartindent true
        :splitbelow true
@@ -26,6 +27,5 @@
        :wrap false
        :scrolloff 8
        :sidescrolloff 8}]
-
   (each [key value (pairs option-table)]
     (tset nvim.o key value)))

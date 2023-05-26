@@ -1,7 +1,6 @@
-(module config.plugins.autopairs
-  {require {a aniseed.core}})
+(module config.plugins.autopairs)
 
-(def lisps [:scheme :lisp :clojure :fennel])
+(def- lisps [:scheme :lisp :clojure :fennel])
 
 (let [(ok? autopairs) (pcall require :nvim-autopairs)]
   (when ok?
