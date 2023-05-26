@@ -1,5 +1,6 @@
 (module config.plugins
-  {autoload {a aniseed.core
+  {autoload {nvim aniseed.nvim
+             a aniseed.core
              : packer}})
 
 (defn- safe-require-plugin-config [name]
@@ -45,6 +46,7 @@
 
 (let [(ok? kanagawa) (pcall require :kanagawa)]
   (when ok?
+    (set nvim.o.termguicolors true)
     (kanagawa.load "dragon")))
 
 (let [(ok? nv-comment) (pcall require :nvim_comment)]

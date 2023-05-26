@@ -19,6 +19,10 @@
   (local-file 
     (dotfiles-path-append "bash-profile.sh")))
 
+(define bashrc-file
+  (local-file
+    (dotfiles-path-append "bashrc.sh")))
+
 (define config-files
   (map dotfiles-symlink '(("foot/foot.ini")
                           ("guix/channels.scm")
@@ -31,14 +35,18 @@
     (list 
       (simple-service 'setup-environment-variables-service
                       home-environment-variables-service-type
-                      '(("GUIX_USER_PROFILES" . "$XDG_DATA_HOME/guix-profiles")))
+                      `(("GUIX_USER_PROFILES" . "$XDG_DATA_HOME/guix-profiles")))
       (service home-bash-service-type
           (home-bash-configuration
+            (guix-defaults? #f)
+            (bash-profile 
+              (list bash-profile-file))
+            (bashrc 
+              (list bashrc-file))
             (aliases
              '(("cp" . "cp -riv")
                ("mv" . "mv -iv")
-               ("rm" . "rm -iv")))
-           (bash-profile (list bash-profile-file))))
-     (simple-service 'xdg-config-files-service
-                     home-xdg-configuration-files-service-type
-                     config-files))))
+               ("rm" . "rm -iv")))))
+      (simple-service 'xdg-config-files-service
+                      home-xdg-configuration-files-service-type
+                      config-files))))

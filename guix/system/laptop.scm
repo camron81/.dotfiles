@@ -1,6 +1,8 @@
 (use-modules (system base)
              (gnu))
 
+(use-service modules pm)
+
 (operating-system
   (inherit %base-operating-system)
   (host-name "laptop")
@@ -24,4 +26,9 @@
            %base-file-systems))
 
   (swap-devices
-    (list (swap-space (target "/swapfile")))))
+    (list (swap-space (target "/swapfile"))))
+
+  (services (cons* 
+              (service tlp-service-type)
+              (service thermald-service-type)
+              %base-system-services)))

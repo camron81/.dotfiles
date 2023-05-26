@@ -1,6 +1,6 @@
 (module config.plugins.autopairs)
 
-(def- lisps [:scheme :lisp :clojure :fennel])
+(def- lisps [:clojure :fennel :lisp :scheme :scheme.guile])
 
 (let [(ok? autopairs) (pcall require :nvim-autopairs)]
   (when ok?
