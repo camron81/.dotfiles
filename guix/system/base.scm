@@ -7,7 +7,6 @@
 (use-package-modules certs ncurses version-control vim)
 
 (define-public %base-system-services
-  (services
     (modify-services %desktop-services
          (delete gdm-service-type)
          (guix-service-type config =>
@@ -18,7 +17,7 @@
                                        %default-substitute-urls))
                               (authorized-keys
                                 (cons* (local-file "../signing-key.pub")
-                                       %default-authorized-guix-keys)))))))
+                                       %default-authorized-guix-keys))))))
 
 (define-public %base-operating-system
   (operating-system

@@ -7,16 +7,12 @@ set $term foot
 set $menu bemenu-run
 set $font MesloLGM Regular 12
 
-default_orientation auto
-workspace_layout tabbed
-
 font $font
 
-gaps inner 5
+gaps inner 20
+gaps outer 0
 smart_gaps off
-default_border pixel 2
-default_floating_border pixel 2
-smart_borders off
+smart_borders on
 
 # border background text
 client.focused #AE3B40 #AE3B40 #FFFFFF
@@ -133,7 +129,7 @@ bar {
     colors {
         statusline #D8D8D8
         background #181616
-        active_workspace #AE3B40 #AE3B40 #FFFFFF
+        focused_workspace #AE3B40 #AE3B40 #FFFFFF
         inactive_workspace #CA6368 #CA6368 #D8D8D8
     }
 }

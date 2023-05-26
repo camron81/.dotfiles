@@ -1,7 +1,7 @@
 (use-modules (system base)
              (gnu))
 
-(use-service modules pm)
+(use-service-modules pm)
 
 (operating-system
   (inherit %base-operating-system)
