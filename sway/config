@@ -4,7 +4,7 @@ set $down j
 set $up k
 set $right l
 set $term foot
-set $menu bemenu-run
+set $browser firefox
 set $font MesloLGM Regular 12
 
 font $font
@@ -40,7 +40,7 @@ seat * {
 }
 
 bindsym $mod+Return exec $term
-bindsym $mod+d exec $menu
+bindsym $mod+b exec $browser
 bindsym $mod+Shift+q kill
 bindsym $mod+Shift+c reload
 bindsym $mod+Shift+e exec swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your Wayland session.' -B 'Yes, exit sway' 'swaymsg exit'
@@ -86,8 +86,8 @@ bindsym $mod+Shift+8 move container to workspace number 8
 bindsym $mod+Shift+9 move container to workspace number 9
 bindsym $mod+Shift+0 move container to workspace number 10
 
-bindsym $mod+b splith
-bindsym $mod+v splitv
+#bindsym $mod+b splith
+#bindsym $mod+v splitv
 
 bindsym $mod+s layout stacking
 bindsym $mod+w layout tabbed
@@ -122,7 +122,7 @@ exec swayidle -w \
 bar {
     position top
 
-    status_command while ~/.dotfiles/sway/status.sh; do sleep 1; done
+    status_command while ~/.dotfiles/sway/status.sh; do sleep 10; done
     status_edge_padding 10
 
     font $font

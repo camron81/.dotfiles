@@ -43,7 +43,7 @@
     ; Terminal Mode
     [:n :<leader>ts ":split | :terminal<cr>"]
     [:n :<leader>tv ":vsplit | :terminal<cr>"]
-    [:n :<leader>T ":terminal<cr>"]
+    [:n :<leader><S-t> ":terminal<cr>"]
     [:t :<esc> "<C-\\><C-n>"]
     [:t :<C-e> "<C-\\><C-n>"]
     [:t :<C-h> "<C-\\><C-n><C-w>h"]

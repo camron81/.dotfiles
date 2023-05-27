@@ -1,8 +1,6 @@
 (specifications->manifest
-  '("bemenu"
-    "brightnessctl"
+  '("brightnessctl"
     "foot"
     "sway"
     "swaybg"
-    "swayidle"
-    "swaylock"))
+    "swayidle"))

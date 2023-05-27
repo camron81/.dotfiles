@@ -6,9 +6,27 @@
 (use-service-modules desktop xorg)
 (use-package-modules certs ncurses version-control vim)
 
+(define backlight-udev-rule
+  (udev-rule
+    "90-backlight.rules"
+    (string-append "ACTION==\"add\", SUBSYSTEM==\"backlight\", "
+                   "RUN+=\"/run/current-system/profile/bin/chgrp video /sys/class/backlight/%k/brightness\""
+                   "\n"
+                   "ACTION==\"add\", SUBSYSTEM==\"backlight\", "
+                   "RUN+=\"/run/current-system/profile/bin/chmod g+w /sys/class/backlight/%k/brightness\"")))
+
 (define-public %base-system-services
     (modify-services %desktop-services
          (delete gdm-service-type)
+         (udev-service-type config =>
+                            (udev-configuration
+                              (inherit config)
+                              (rules (cons backlight-udev-rule
+                                           (udev-configuration-rules config)))))
+         (mingetty-service-type config =>
+                                (mingetty-configuration
+                                  (inherit config)
+                                  (auto-login "ethan")))
          (guix-service-type config =>
                             (guix-configuration
                               (inherit config)
@@ -27,9 +45,19 @@
     (keyboard-layout (keyboard-layout "gb"))
 
     (kernel linux)
-    ; Limit these to their minimal neceassary includes...
-    (initrd microcode-initrd)
-    (firmware (list linux-firmware))
+    (kernel-arguments
+      (cons* "quiet loglevel=3"
+             %default-kernel-arguments))
+
+    (initrd (lambda (file-systems . rest)
+              (apply microcode-initrd file-systems
+                     #:initrd base-initrd
+                     #:microcode-packages (list amd-microcode)
+                     rest)))
+
+    (firmware (cons* amdgpu-firmware
+                     atheros-firmware
+                     %base-firmware))
 
     (bootloader
       (bootloader-configuration
@@ -45,9 +73,9 @@
                (name "ethan")
                (group "users")
                (home-directory "/home/ethan")
-               (supplementary-groups '("wheel" "netdev" "audio" "video")))
+               (supplementary-groups 
+                 '("wheel" "netdev" "audio" "video")))
              %base-user-accounts))
-    ; Create power group and edit sudoers file to make shutdown runable by users...
 
     (services %base-system-services)
    
@@ -59,5 +87,5 @@
                 %base-packages))
 
     (skeletons '())
-
+    (issue "")
     (name-service-switch %mdns-host-lookup-nss)))

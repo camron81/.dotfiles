@@ -1,12 +1,11 @@
 Guix:
   Base:
-    - shutdown/ reboot without sudo [ ]
-    - minimal sway config [ ]
-    - autologin to user [ ]
-    - minimal kernel/firmware/microcode [ ]
+    - bugfix boot errors [ ]
     - alternative filesystem [ ]
-    - compare with NixOS configuration what else do you need to copy! [ ]
-    - A guile script for downloading and storing Meslo Nerd Fonts for configuration
+    - no sudo for poweroff/ reboot [ ]
+    - one password for cryptsetup [ ]
+    - minimal sway config [ ]
+    - Guix Deep dive [ ]
 
   Manifests:
     - Guile script for managing your user profiles [ ]
@@ -14,11 +13,13 @@ Guix:
   Home:
     - Guix git config [ ]
     - Guix redshift do not use geoclue just set as London [ ]
+    - A guile script for downloading and storing Meslo Nerd Fonts for configuration
 
   Extra:
     - Fully explore the API see how deep you can craft [ ]
 
 Neovim:
+  - nvim-tree vim navigation h,j,k,l and 'A' mapping to create-dir [ ]
   - Start guile connection to conjure automatically [ ] 
   - which-key configuration inc. naming prefixes [ ]
   - leap.nvim [ ]
@@ -40,7 +41,6 @@ Firefox:
   - bitwarden/ vim extensions [ ]
 
 Desktop:
-  - Applications [ ]
-  - GTK themes/ icons [ ]
+  - GTK themes/ cursor [ ]
   - Distrobox [ ]
   - Packaging missing... [ ] 
