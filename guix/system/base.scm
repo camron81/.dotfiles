@@ -45,9 +45,6 @@
     (keyboard-layout (keyboard-layout "gb"))
 
     (kernel linux)
-    (kernel-arguments
-      (cons* "quiet loglevel=3"
-             %default-kernel-arguments))
 
     (initrd (lambda (file-systems . rest)
               (apply microcode-initrd file-systems
@@ -57,6 +54,7 @@
 
     (firmware (cons* amdgpu-firmware
                      atheros-firmware
+                     realtek-firmware
                      %base-firmware))
 
     (bootloader
@@ -64,7 +62,7 @@
         (bootloader grub-efi-bootloader)
         (targets '("/boot/efi"))
         (keyboard-layout keyboard-layout)
-        (timeout 3)))
+        (timeout 2)))
 
     (file-systems '())
 
@@ -86,6 +84,4 @@
                 nss-certs
                 %base-packages))
 
-    (skeletons '())
-    (issue "")
     (name-service-switch %mdns-host-lookup-nss)))

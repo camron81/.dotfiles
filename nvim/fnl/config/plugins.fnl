@@ -25,6 +25,7 @@
   :Olical/conjure {}
   :PaterJason/cmp-conjure {}
   :folke/which-key.nvim {}
+  :janet-lang/janet.vim {}
   :gpanders/nvim-parinfer {}
   :hrsh7th/cmp-buffer {}
   :hrsh7th/cmp-cmdline {}
@@ -34,11 +35,11 @@
   :lewis6991/impatient.nvim {}
   :nvim-telescope/telescope.nvim {:mod "telescope" :requires [[:nvim-lua/plenary.nvim]]}
   :nvim-tree/nvim-tree.lua {:mod "nvim-tree" :requires [[:nvim-tree/nvim-web-devicons]]}
+  :nvim-treesitter/nvim-treesitter {:mod :treesitter} 
   :rebelot/kanagawa.nvim {}
   :terrortylor/nvim-comment {}
   :wbthomason/packer.nvim {}
   :windwp/nvim-autopairs {:mod "autopairs"})
-  ;:nvim-treesitter/nvim-treesitter {:mod :treesitter :run ":TSUpdate"}
 
 (let [(ok? gitsigns) (pcall require :gitsigns)]
   (when ok?

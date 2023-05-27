@@ -1,11 +1,7 @@
 Guix:
   Base:
-    - bugfix boot errors [ ]
-    - alternative filesystem [ ]
-    - no sudo for poweroff/ reboot [ ]
-    - one password for cryptsetup [ ]
     - minimal sway config [ ]
-    - Guix Deep dive [ ]
+    - no sudo for poweroff/ reboot [ ]
 
   Manifests:
     - Guile script for managing your user profiles [ ]
@@ -16,6 +12,7 @@ Guix:
     - A guile script for downloading and storing Meslo Nerd Fonts for configuration
 
   Extra:
+    - Guix Deep dive of manual [ ]
     - Fully explore the API see how deep you can craft [ ]
 
 Neovim:
@@ -24,8 +21,6 @@ Neovim:
   - which-key configuration inc. naming prefixes [ ]
   - leap.nvim [ ]
   - LSP Support [ ]
-  - Treesitter [ ]
-    - See where tree-sitter-scheme gets installed is there any way you can link the two... (the same story will happen with LSP and Null-ls etc.)
   - Null-ls [ ]
   - Format on save if this doesn't do it [ ]
   - Compile command (similar to Emacs <space>cc) [ ]
@@ -34,6 +29,7 @@ Neovim:
 
 Sway:
   - Sway configuration in Scheme [ ]
+  - Manage backlight with keys [ ]
   - Swaylock/ Swaylock-effects may need PAM setup [ ]
 
 Firefox:
