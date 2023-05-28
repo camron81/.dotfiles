@@ -4,7 +4,7 @@
 
 ;; Local Leader
 (set nvim.g.mapleader " ")
-(set nvim.g.maplocalleader ",")
+(set nvim.g.maplocalleader " ")
 
 (let 
   [keymap-list 
@@ -23,6 +23,10 @@
     [:n :<C-j> :<C-w>j]
     [:n :<C-k> :<C-w>k]
     [:n :<C-l> :<C-w>l]
+    [:n :<leader>wh :<C-w><S-h>]
+    [:n :<leader>wj :<C-w><S-j>]
+    [:n :<leader>wk :<C-w><S-k>]
+    [:n :<leader>wl :<C-w><S-l>]
     ; Winow Resizing
     [:n :<C-Up> ":resize +2<cr>"]
     [:n :<C-Down> ":resize -2<cr>"]

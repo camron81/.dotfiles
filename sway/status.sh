@@ -19,4 +19,4 @@ else
     battery=""
 fi
 
-echo "$charging$battery    $bat_charge%  |  $(date +'%d-%m-%Y %H:%M') "
+echo "$charging$battery    $bat_charge%  |  $(date +'%a %d %b %Y  %H:%M')  "

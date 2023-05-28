@@ -9,6 +9,8 @@ set $font MesloLGM Regular 12
 
 font $font
 
+workspace_layout tabbed
+
 gaps inner 20
 gaps outer 0
 smart_gaps off

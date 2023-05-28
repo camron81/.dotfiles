@@ -1,9 +1,9 @@
 (specifications->manifest
-  '(;;Neovim
-    "fennel"              
-    ; Telescope
-    "fd"                  
-    "ripgrep"             
-    ; Wayland Clipboard
-    "wl-clipboard"))      
+  '(;; Neovim
+    "fennel"  
+    "fd"      
+    "ripgrep" 
+    "wl-clipboard"      
+    ;; Automatic Guile Repls
+    "direnv"))
     

@@ -8,5 +8,5 @@ for p in $GUIX_USER_PROFILES/*; do
 done
 
 if [ "$(tty)" = "/dev/tty1" ] && [ -z "${WAYLAND_DISPLAY}" ] && [ "${XDG_VTNR}" -eq 1 ]; then
-  exec sway
+    exec sway
 fi
