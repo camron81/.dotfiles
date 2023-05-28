@@ -58,6 +58,10 @@
 
     (services (append
                 (modify-services %base-services
+                  (login-service-type config =>
+                                      (login-configuration
+                                        (inherit config)
+                                        (motd "")))
                   (mingetty-service-type config =>
                                          (mingetty-configuration
                                            (inherit config)

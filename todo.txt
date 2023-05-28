@@ -7,7 +7,6 @@ Guix:
     - Guile script for managing your user profiles [ ]
  
   Home:
-    - use escape codes instead of tput for PS1 for pure Guix shell support [ ]
     - Guix git config [ ]
     - Guix redshift do not use geoclue just set as London [ ]
     - A guile script for downloading and storing Meslo Nerd Fonts for configuration, look at daviwil package for inspo [ ]
@@ -30,7 +29,7 @@ Neovim:
 
 Sway:
   - Manage backlight with keys [ ]
-  - Swaylock/ Swaylock-effects may need PAM setup [ ]
+  - Swaylock/ Swaylock-effects, refer to daviwil dotfiles for setuid [ ]
 
 Firefox:
   - Areknfox setup [ ]
