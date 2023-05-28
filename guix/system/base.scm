@@ -1,9 +1,11 @@
-(define-module (system base)
-  #:use-module (gnu)
-  #:use-module (nongnu packages linux)
-  #:use-module (nongnu system linux-initrd))
+(define-module (system base))
+
+(use-modules (gnu)
+             (nongnu packages linux)
+             (nongnu system linux-initrd))
 
 (use-service-modules dbus desktop networking pm)
+
 (use-package-modules certs gnome ncurses linux terminals version-control vim wm)
 
 (define-public %base-operating-system
@@ -58,14 +60,12 @@
 
     (services (append
                 (modify-services %base-services
+                  (delete mingetty-service-type)
+                  (delete console-font-service-type)
                   (login-service-type config =>
                                       (login-configuration
                                         (inherit config)
                                         (motd "")))
-                  (mingetty-service-type config =>
-                                         (mingetty-configuration
-                                           (inherit config)
-                                           (auto-login "ethan")))
                   (guix-service-type config =>
                                      (guix-configuration
                                        (inherit config)
@@ -78,6 +78,18 @@
                                                 %default-authorized-guix-keys)))))
 
                 (list
+                  (service console-font-service-type
+                           (map (lambda (tty)
+                                  (cons tty %default-console-font))
+                                '("tty1" "tty2" "tty3")))
+                  (service mingetty-service-type
+                           (mingetty-configuration (tty "tty1")
+                                                   (auto-login "ethan")))
+                  (service mingetty-service-type
+                           (mingetty-configuration (tty "tty2")))
+                  (service mingetty-service-type
+                           (mingetty-configuration (tty "tty3")))
+
                   (service network-manager-service-type)
                   (service wpa-supplicant-service-type)
                   (simple-service 'network-manager-applet
