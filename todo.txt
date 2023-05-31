@@ -1,11 +1,4 @@
 Guix:
-  Base:
-    - Review the rest of daviwil's dotfiles for inspo [ ] 
-    - no sudo for poweroff/ reboot [ ]
-
-  Manifests:
-    - Guile script for managing your user profiles [ ]
- 
  Home:
     - Bash ignore commands in history (exit, clear) [ ]
     - Guix redshift do not use geoclue just set as London [ ]
@@ -29,11 +22,12 @@ Neovim:
   - Debugging (dap/dap-ui) [ ]
   - Git support (neogit/ fugutive) [ ]
 
-Sway:
-  - Manage backlight with keys [ ]
-  - Swaylock/ Swaylock-effects, refer to daviwil dotfiles for setuid [ ]
-
 Desktop:
   - GTK themes/ cursor [ ]
   - Distrobox [ ]
   - Packaging missing... [ ] 
+
+Sway:
+  - Manage backlight with keys [ ]
+  - Manage audio with keys [ ]
+  - Swaylock/ Swaylock-effects, refer to daviwil dotfiles for setuid [ ]

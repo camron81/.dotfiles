@@ -78,8 +78,8 @@
                                 '("tty1" "tty2" "tty3")))
 
                   (service mingetty-service-type
-                           (mingetty-configuration (tty "tty1")
-                                                   (auto-login "ethan")))
+                           (mingetty-configuration (tty "tty1")))
+                                                   ; (auto-login "ethan")))
                   (service mingetty-service-type
                            (mingetty-configuration (tty "tty2")))
                   (service mingetty-service-type
@@ -87,11 +87,6 @@
 
                   (service network-manager-service-type)
                   (service wpa-supplicant-service-type)
-                  (simple-service 'network-manager-applet
-                                  profile-service-type
-                                  (list network-manager-applet))
-                  (service modem-manager-service-type)
-                  (service usb-modeswitch-service-type)
 
                   polkit-wheel-service
                   (service polkit-service-type)
@@ -99,7 +94,8 @@
                   (service dbus-root-service-type)
 
                   (service tlp-service-type
-                           (tlp-configuration (cpu-boost-on-ac? #t)))
+                           (tlp-configuration (cpu-boost-on-ac? #t)
+                                              (wifi-pwr-on-bat? #f)))
                   (service thermald-service-type)
 
                   (service ntp-service-type)

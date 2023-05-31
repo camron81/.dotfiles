@@ -1,0 +1,94 @@
+#!/run/current-system/profile/bin/guile \
+-e main -s
+!#
+
+(use-modules (ice-9 getopt-long)
+             (ice-9 ftw)
+             (srfi srfi-1))
+
+(define %manifest-path
+  (let 
+    ((path (string-append (getenv "HOME") "/.dotfiles/guix/manifests")))
+    (if (file-exists? path) path #f)))
+
+(define %profile-path
+  (getenv "GUIX_USER_PROFILES"))
+
+(define command-options
+  '((install  (single-char #\i))
+    (update   (single-char #\u))
+    (help     (single-char #\h))))
+
+(define help-text
+  "\
+  USAGE: guix-profiles [options] manifests...
+      --install  -i     installs the specified manifests
+      --help     -h     display this help text
+  EXAMPLES:
+      guix-profiles development audio         updates the development.scm and audio.scm manifests.
+      profiles.scm --install browser video    installs the browser.scm and video.scm manifests.
+      profiles.scm                            updates all manifests found in the cwd.")
+
+(define (print-then-exit message code)
+  (display message)
+  (newline)
+  (exit code))
+
+(define (error-then-exit message)
+  (print-then-exit 
+    (string-append "Error: " message) 
+    EXIT_FAILURE))
+
+(define (get-manifest-files)
+    (let ((scanned-files (scandir %manifest-path)))
+      (if scanned-files
+        (drop (map (lambda (f) (basename f ".scm")) 
+                   scanned-files) 
+              2)
+        (error-then-exit 
+          (string-append "manifest path: " %manifest-path " is not a valid directory")))))
+
+(define (manifest-path-append names)
+  (map (lambda (n) (string-append %manifest-path "/" n ".scm")) 
+       names))
+
+(define (profile-path-append names)
+  (map (lambda (n) (string-append %profile-path "/" n "/")) 
+       names))
+
+(define (main arguments)
+  (let* ((options      (getopt-long arguments command-options))
+         (install-mode (option-ref options 'install #f))
+         (help-needed  (option-ref options 'help   #f))
+         (non-options  (option-ref options '()     #f)))
+
+    (when help-needed
+      (print-then-exit help-text EXIT_SUCCESS))
+
+    (unless %manifest-path
+      (error-then-exit 
+        (string-append "manifest path: " %manifest-path " does not exist")))
+    (unless %profile-path
+      (error-then-exit "GUIX_USER_PROFILES environment variable is not set"))
+
+    (let* 
+      ((wildcard  (null? non-options))
+       (files     (if wildcard (get-manifest-files) '()))
+       (names     (if wildcard files non-options))
+       (manifests (manifest-path-append names))
+       (profiles  (profile-path-append names))
+       (iterate-profiles
+          (lambda (name profile manifest)
+            (unless (file-exists? manifest)
+                    (error-then-exit 
+                      (string-append "manifest file: " manifest " does not exist")))
+            (when (and install-mode (not (file-exists? profile)))
+              (mkdir profile))
+            (system 
+              (string-append "guix package --manifest=" manifest
+                             " --profile=" profile name)) 
+            (when install-mode
+              (setenv "GUIX_PROFILE" (string-append profile name))
+              (system "source $GUIX_PROFILE/etc/profile")))))
+
+      (for-each iterate-profiles names profiles manifests))))

@@ -26,7 +26,6 @@
            %base-file-systems))
 
   (services (cons*
-              (udev-rules-service 'pipewire-udev-rules pipewire)
               (udev-rules-service 'brightnessctl-udev-rules brightnessctl)
               (operating-system-user-services
                 %base-operating-system)))
