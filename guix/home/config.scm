@@ -35,7 +35,15 @@
   (services (list 
               (simple-service 'setup-environment-variables-service
                               home-environment-variables-service-type
-                              `(("GUIX_USER_PROFILES" . "$XDG_DATA_HOME/guix-profiles")))
+                              `(("GUIX_USER_PROFILES" . "$XDG_DATA_HOME/guix-profiles")
+                                ; sort ls output by dotfiles first
+                                ("LC_COLLATE" . "C")
+                                ; default applications
+                                ("EDITOR" . "nvim")
+                                ("BROWSER" . "firefox")
+                                ; xdg base directory specification
+                                ("HISTFILE" . "$XDG_STATE_HOME/bash/history")))
+
               (service home-bash-service-type
                   (home-bash-configuration
                     (guix-defaults? #f)
@@ -47,7 +55,7 @@
                      '(("cp" . "cp -riv")
                        ("mv" . "mv -iv")
                        ("rm" . "rm -iv")))))
+
               (simple-service 'xdg-config-files-service
                               home-xdg-configuration-files-service-type
                             config-files))))
-

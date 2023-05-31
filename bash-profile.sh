@@ -3,6 +3,7 @@ for p in $GUIX_USER_PROFILES/*; do
 	if [ -f "$profile"/etc/profile ]; then
 		GUIX_PROFILE="$profile"
 		. "$GUIX_PROFILE"/etc/profile
+    MANPATH="${MANPATH}:${profile}/share/man"
 	fi
 	unset profile
 done

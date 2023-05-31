@@ -6,19 +6,21 @@ Guix:
   Manifests:
     - Guile script for managing your user profiles [ ]
  
-  Home:
-    - Guix git config [ ]
+ Home:
+    - Bash ignore commands in history (exit, clear) [ ]
     - Guix redshift do not use geoclue just set as London [ ]
     - A guile script for downloading and storing Meslo Nerd Fonts for configuration, look at daviwil package for inspo [ ]
 
   Extra:
     - Guix Deep dive of manual [ ]
+    - Check out rde [ ] 
     - Fully explore the API see how deep you can craft [ ]
 
 Neovim:
   - Remove/ handle pcalls to show when there is errors requiring [ ] 
   - nvim-tree vim navigation h,j,k,l and 'A' mapping to create-dir [ ]
   - which-key configuration inc. naming prefixes [ ]
+  - Lazy loading of plugins [ ] 
   - leap.nvim [ ]
   - LSP Support [ ]
   - Null-ls [ ]
@@ -30,10 +32,6 @@ Neovim:
 Sway:
   - Manage backlight with keys [ ]
   - Swaylock/ Swaylock-effects, refer to daviwil dotfiles for setuid [ ]
-
-Firefox:
-  - Areknfox setup [ ]
-  - bitwarden/ vim extensions [ ]
 
 Desktop:
   - GTK themes/ cursor [ ]

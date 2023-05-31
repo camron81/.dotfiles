@@ -1,6 +1,8 @@
 (use-modules (system base)
              (gnu))
 
+(use-package-modules linux)
+
 (operating-system
   (inherit %base-operating-system)
   (host-name "laptop")
@@ -22,6 +24,12 @@
              (device (uuid "763C-CA4D" 'fat32))
              (type "vfat"))
            %base-file-systems))
+
+  (services (cons*
+              (udev-rules-service 'pipewire-udev-rules pipewire)
+              (udev-rules-service 'brightnessctl-udev-rules brightnessctl)
+              (operating-system-user-services
+                %base-operating-system)))
 
   (swap-devices
     (list (swap-space (target "/swapfile")))))

@@ -5,8 +5,7 @@
              (nongnu system linux-initrd))
 
 (use-service-modules dbus desktop networking pm)
-
-(use-package-modules certs gnome ncurses linux terminals version-control vim wm)
+(use-package-modules certs gnome ncurses version-control vim)
 
 (define-public %base-operating-system
   (operating-system
@@ -47,15 +46,10 @@
              %base-user-accounts))
 
     (packages (cons*
-                brightnessctl
-                foot
                 git
                 ncurses
                 neovim
                 nss-certs
-                sway
-                swaybg
-                swayidle
                 %base-packages))
 
     (services (append
@@ -82,6 +76,7 @@
                            (map (lambda (tty)
                                   (cons tty %default-console-font))
                                 '("tty1" "tty2" "tty3")))
+
                   (service mingetty-service-type
                            (mingetty-configuration (tty "tty1")
                                                    (auto-login "ethan")))
@@ -109,9 +104,6 @@
 
                   (service ntp-service-type)
 
-                  fontconfig-file-system-service
-
-                  (udev-rules-service 'pipewire-udev-rules pipewire)
-                  (udev-rules-service 'brightnessctl-udev-rules brightnessctl))))
+                  fontconfig-file-system-service)))
 
     (name-service-switch %mdns-host-lookup-nss)))
