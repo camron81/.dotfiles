@@ -2,6 +2,9 @@
              (gnu home services)
              (gnu home services shells)
              (gnu services)
+             (gnu packages gnome)
+             (gnu packages gnome-xyz)
+             (gnu packages)
              (guix gexp))
 
 (define (dotfiles-path-append path)
@@ -32,6 +35,8 @@
          ("sway/config"))))
 
 (home-environment 
+  (packages 
+    (list bibata-cursor-theme hicolor-icon-theme))
   (services (list 
               (simple-service 'setup-environment-variables-service
                               home-environment-variables-service-type

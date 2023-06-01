@@ -1,11 +1,15 @@
 Guix:
- Home:
+  Base: 
+    - Resolve wifi driver issue if possible [ ]
+
+  Home:
     - Bash ignore commands in history (exit, clear) [ ]
     - Guix redshift do not use geoclue just set as London [ ]
     - A guile script for downloading and storing Meslo Nerd Fonts for configuration, look at daviwil package for inspo [ ]
 
   Extra:
     - Guix Deep dive of manual [ ]
+    - Home Services [ ]
     - Check out rde [ ] 
     - Fully explore the API see how deep you can craft [ ]
 
@@ -23,7 +27,6 @@ Neovim:
   - Git support (neogit/ fugutive) [ ]
 
 Desktop:
-  - GTK themes/ cursor [ ]
   - Distrobox [ ]
   - Packaging missing... [ ] 
 

@@ -25,10 +25,5 @@
              (type "vfat"))
            %base-file-systems))
 
-  (services (cons*
-              (udev-rules-service 'brightnessctl-udev-rules brightnessctl)
-              (operating-system-user-services
-                %base-operating-system)))
-
   (swap-devices
     (list (swap-space (target "/swapfile")))))

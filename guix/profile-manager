@@ -40,11 +40,10 @@
     EXIT_FAILURE))
 
 (define (get-manifest-files)
-    (let ((scanned-files (scandir %manifest-path)))
+    (let ((scanned-files (scandir %manifest-path))
+          (get-basename (lambda (f) (basename f ".scm"))))
       (if scanned-files
-        (drop (map (lambda (f) (basename f ".scm")) 
-                   scanned-files) 
-              2)
+        (drop (map get-basename scanned-files) 2)
         (error-then-exit 
           (string-append "manifest path: " %manifest-path " is not a valid directory")))))
 
@@ -85,10 +84,6 @@
             (when (and install-mode (not (file-exists? profile)))
               (mkdir profile))
             (system 
-              (string-append "guix package --manifest=" manifest
-                             " --profile=" profile name)) 
-            (when install-mode
-              (setenv "GUIX_PROFILE" (string-append profile name))
-              (system "source $GUIX_PROFILE/etc/profile")))))
-
+              (string-append "guix package --verbosity=3 --manifest=" manifest
+                             " --profile=" profile name))))) 
       (for-each iterate-profiles names profiles manifests))))
