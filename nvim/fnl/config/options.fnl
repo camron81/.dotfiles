@@ -21,7 +21,7 @@
        :splitright true
        :swapfile false
        :tabstop 2
-       :timeoutlen 1000
+       :timeoutlen 500
        :undofile true
        :updatetime 500
        :wrap false

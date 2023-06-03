@@ -22,19 +22,24 @@
 (use
   :HiPhish/guile.vim {}
   :Olical/aniseed {}
-  :Olical/conjure {}
+  :Olical/conjure {:mod "conjure"}
   :PaterJason/cmp-conjure {}
-  :folke/which-key.nvim {}
-  :janet-lang/janet.vim {}
+  :folke/which-key.nvim {:mod "which-key"}
   :gpanders/nvim-parinfer {}
   :hrsh7th/cmp-buffer {}
   :hrsh7th/cmp-cmdline {}
+  :hrsh7th/cmp-nvim-lsp {}
   :hrsh7th/cmp-path {}
   :hrsh7th/nvim-cmp {:mod "cmp"}
+  :janet-lang/janet.vim {}
   :lewis6991/gitsigns.nvim {}
   :lewis6991/impatient.nvim {}
-  :nvim-telescope/telescope.nvim {:mod "telescope" :requires [[:nvim-lua/plenary.nvim]]}
-  :nvim-tree/nvim-tree.lua {:mod "nvim-tree" :requires [[:nvim-tree/nvim-web-devicons]]}
+  :nvim-telescope/telescope.nvim 
+    {:mod "telescope" 
+     :requires [[:nvim-lua/plenary.nvim]]}
+  :nvim-tree/nvim-tree.lua 
+    {:mod "nvim-tree" 
+     :requires [[:nvim-tree/nvim-web-devicons]]}
   :nvim-treesitter/nvim-treesitter {:mod :treesitter} 
   :rebelot/kanagawa.nvim {}
   :terrortylor/nvim-comment {}
@@ -42,18 +47,27 @@
   :windwp/nvim-autopairs {:mod "autopairs"})
 
 (let [(ok? gitsigns) (pcall require :gitsigns)]
-  (when ok?
-    (gitsigns.setup)))
+  (if ok?
+    (gitsigns.setup)
+    (print "config error: gitsigns plugin could not be loaded")))
 
 (let [(ok? kanagawa) (pcall require :kanagawa)]
-  (when ok?
-    (set nvim.o.termguicolors true)
-    (kanagawa.load "dragon")))
+  (if ok?
+    (do (set nvim.g.termguicolors true)
+        (kanagawa.load "dragon"))
+    (print "config error: kanagawa plugin could not be loaded")))
 
 (let [(ok? nv-comment) (pcall require :nvim_comment)]
-  (when ok?
-    (nv-comment.setup)))
+  (if ok?
+    (nv-comment.setup)
+    (print "config error: nvim_comment plugin could not be loaded")))
 
 (let [(ok? which-key) (pcall require :which-key)]
-  (when ok?
-    (which-key.setup)))
+  (if ok?
+    (which-key.register
+      {:p {:name "plugin"
+           :c ["<cmd>PackerClean<cr>" "clean"]
+           :s ["<cmd>PackerSync<cr>" "sync"]
+           :S ["<cmd>PackerStatus<cr>" "status"]}}
+      {:prefix "<leader>"})
+    (print "config error: which-key plugin could not be loaded")))

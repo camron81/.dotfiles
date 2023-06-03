@@ -30,13 +30,16 @@
   (map dotfiles-symlink 
        '(("foot/foot.ini")
          ("guix/channels.scm")
-         ("nvim/init.lua")
-         ("nvim/fnl" #t)
+         ;("nvim/init.lua")
+         ;("nvim/fnl" #t)
          ("sway/config"))))
 
 (home-environment 
   (packages 
-    (list bibata-cursor-theme hicolor-icon-theme))
+    (list 
+      bibata-cursor-theme 
+      hicolor-icon-theme))
+
   (services (list 
               (simple-service 'setup-environment-variables-service
                               home-environment-variables-service-type

@@ -4,24 +4,26 @@ Guix:
 
   Home:
     - Bash ignore commands in history (exit, clear) [ ]
-    - Guix redshift do not use geoclue just set as London [ ]
+    - Guix redshift do not use geoclue just set as London, will this work in Wayland?? [ ]
     - A guile script for downloading and storing Meslo Nerd Fonts for configuration, look at daviwil package for inspo [ ]
 
   Extra:
     - Guix Deep dive of manual [ ]
-    - Home Services [ ]
     - Check out rde [ ] 
     - Fully explore the API see how deep you can craft [ ]
 
 Neovim:
-  - Remove/ handle pcalls to show when there is errors requiring [ ] 
-  - nvim-tree vim navigation h,j,k,l and 'A' mapping to create-dir [ ]
-  - which-key configuration inc. naming prefixes [ ]
-  - Lazy loading of plugins [ ] 
-  - leap.nvim [ ]
-  - LSP Support [ ]
+  - LSP Support, continue working on it [ ]
   - Null-ls [ ]
+  - Lazy loading of plugins [ ] 
+  - leap.nvim? [ ]
+  - project-nvim? [ ]
   - Format on save if this doesn't do it [ ]
+  - info interface for nvim [ ]
+  - nvim-tree vim navigation h,j,k,l and 'A' mapping to create-dir [ ]
+  - remap <leader>E from Conjure to <leader>eE
+  - Abstract safe pcall handling [ ]
+  - Better wrapper around packer.nvim [ ]
   - Compile command (similar to Emacs <space>cc) [ ]
   - Debugging (dap/dap-ui) [ ]
   - Git support (neogit/ fugutive) [ ]
