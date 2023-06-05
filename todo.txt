@@ -1,3 +1,26 @@
+TODO:
+  Neovim:
+    - Better wrapper around packer.nvim.
+    - compile-time conditional includes depending on loaded-plugins... e.g. everthing to do with which-key should be in which-key all mappings in mappings... all options in options...
+    - Make window-quit actually close instead...?
+    - Read Language support in Neovim documentation before implementing each idea.
+    - Variable indent based on filetypes.
+    - LSP support with only lsp-config and manual installs.
+    - Linter/ Formatting integration.
+    - Lazy loading of plugins.
+    - Remap conjure <leader>E <leader>eE.
+    - nvim-tree vim navigation h,j,k,l and 'A' mapping to create-dir.
+    - Make nvim-tree feel more like dired.
+    - color theme selection...
+    Plugins:
+      - leap.nvim?
+      - project-nvim?
+      - other features of doom-emacs?
+      - info.vim?
+      - git support (neogit/ fugutive)?
+      - Compilation support?
+      - Debugging support?
+
 Guix:
   Base: 
     - Resolve wifi driver issue if possible [ ]
@@ -6,27 +29,12 @@ Guix:
     - Bash ignore commands in history (exit, clear) [ ]
     - Guix redshift do not use geoclue just set as London, will this work in Wayland?? [ ]
     - A guile script for downloading and storing Meslo Nerd Fonts for configuration, look at daviwil package for inspo [ ]
+    - blesh?
 
   Extra:
     - Guix Deep dive of manual [ ]
     - Check out rde [ ] 
     - Fully explore the API see how deep you can craft [ ]
-
-Neovim:
-  - LSP Support, continue working on it [ ]
-  - Null-ls [ ]
-  - Lazy loading of plugins [ ] 
-  - leap.nvim? [ ]
-  - project-nvim? [ ]
-  - Format on save if this doesn't do it [ ]
-  - info interface for nvim [ ]
-  - nvim-tree vim navigation h,j,k,l and 'A' mapping to create-dir [ ]
-  - remap <leader>E from Conjure to <leader>eE
-  - Abstract safe pcall handling [ ]
-  - Better wrapper around packer.nvim [ ]
-  - Compile command (similar to Emacs <space>cc) [ ]
-  - Debugging (dap/dap-ui) [ ]
-  - Git support (neogit/ fugutive) [ ]
 
 Desktop:
   - Distrobox [ ]

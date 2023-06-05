@@ -3,7 +3,7 @@
 (let [(ok? ts) (pcall require :nvim-treesitter.configs)]
   (if ok?
     (ts.setup
-      {:ensure_installed ["bash" "ini" "janet_simple" "lua" "scheme"]
+      {:ensure_installed ["bash" "fennel" "ini" "janet_simple" "lua" "scheme"]
        :sync_install false
        :indent {:enable true
                 :disable []}
