@@ -17,10 +17,6 @@
 
   [nvim-tree webdev-icons which-key]
   (do 
-    (set nvim.g.loaded_netrw 1)
-    (set nvim.g.netrwPlugin 1)
-    (set nvim.o.autochdir true)
-
     (webdev-icons.set_icon 
       {:fnl {:icon "" :color "#428850" :name "Fennel"}})
 

@@ -1,50 +1,36 @@
 (module config.plugins
-  {autoload {nvim aniseed.nvim
-             a aniseed.core
-             : packer}})
+  {require {c    config.core
+            nvim aniseed.nvim}})
 
-(defn- safe-require-plugin-config [name]
-  (let [(ok? val-or-err) (pcall require (.. :config.plugins. name))]
-    (when (not ok?)
-      (print (.. "config error: " val-or-err)))))
+;   :PaterJason/cmp-conjure {}
+;   :hrsh7th/cmp-buffer {}
+;   :hrsh7th/cmp-cmdline {}
+;   :hrsh7th/cmp-nvim-lsp {}
+;   :hrsh7th/cmp-path {}
+;   :hrsh7th/nvim-cmp {:mod "cmp"}
 
-(defn- use [...]
-  (let [pkgs [...]]
-    (packer.startup
-      (fn [use]
-        (for [i 1 (a.count pkgs) 2]
-          (let [name (. pkgs i)
-                opts (. pkgs (+ i 1))]
-            (-?> (. opts :mod) (safe-require-plugin-config))
-            (use (a.assoc opts 1 name)))))))
-  nil)
-
-(use
-  :HiPhish/guile.vim {}
-  :Olical/aniseed {}
-  :Olical/conjure {:mod "conjure"}
-  :PaterJason/cmp-conjure {}
-  :folke/which-key.nvim {:mod "which-key"}
-  :gpanders/nvim-parinfer {}
-  :hrsh7th/cmp-buffer {}
-  :hrsh7th/cmp-cmdline {}
-  :hrsh7th/cmp-nvim-lsp {}
-  :hrsh7th/cmp-path {}
-  :hrsh7th/nvim-cmp {:mod "cmp"}
-  :janet-lang/janet.vim {}
-  :lewis6991/gitsigns.nvim {}
-  :lewis6991/impatient.nvim {}
-  :nvim-telescope/telescope.nvim 
-    {:mod "telescope" 
-     :requires [[:nvim-lua/plenary.nvim]]}
-  :nvim-tree/nvim-tree.lua 
-    {:mod "nvim-tree" 
-     :requires [[:nvim-tree/nvim-web-devicons]]}
-  :nvim-treesitter/nvim-treesitter {:mod :treesitter} 
-  :rebelot/kanagawa.nvim {}
-  :terrortylor/nvim-comment {}
-  :wbthomason/packer.nvim {}
-  :windwp/nvim-autopairs {:mod "autopairs"})
+(c.use-plugins
+  [{:name "autopairs"  :repo "windwp/nvim-autopairs" :config true}
+   {:name "aniseed"    :repo "Olical/aniseed"}
+   {:name "comments"   :repo "terrortylor/nvim-comment"}
+   {:name "conjure"    :repo "Olical/conjure" :config true}
+   {:name "gitsigns"   :repo "lewis6991/gitsigns.nvim"}
+   {:name "guile"      :repo "HiPhish/guile.vim"}
+   {:name "impatient"  :repo "lewis6991/impatient.nvim"}
+   {:name "janet"      :repo "janet-lang/janet.vim"}
+   {:name "nvim-tree" 
+    :repo ["nvim-tree/nvim-tree.lua" 
+            {:requires ["nvim-tree/nvim-web-devicons"]}]
+    :config true}
+   {:name "packer"     :repo "wbthomason/packer.nvim"}
+   {:name "parinfer"   :repo "gpanders/nvim-parinfer"}
+   {:name "telescope"
+    :repo ["nvim-telescope/telescope.nvim" 
+            {:requires "nvim-lua/plenary.nvim"}]
+    :config true}
+   {:name "theme"      :repo "rebelot/kanagawa.nvim"}
+   {:name "treesitter" :repo "nvim-treesitter/nvim-treesitter" :config true}
+   {:name "which-key"  :repo "folke/which-key.nvim" :config true}])
 
 (let [(ok? gitsigns) (pcall require :gitsigns)]
   (if ok?
@@ -53,8 +39,7 @@
 
 (let [(ok? kanagawa) (pcall require :kanagawa)]
   (if ok?
-    (do (set nvim.g.termguicolors true)
-        (kanagawa.load "dragon"))
+    (kanagawa.load "dragon")
     (print "config error: kanagawa plugin could not be loaded")))
 
 (let [(ok? nv-comment) (pcall require :nvim_comment)]

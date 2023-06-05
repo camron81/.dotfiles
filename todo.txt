@@ -1,13 +1,14 @@
 TODO:
   Neovim:
-    - Better wrapper around packer.nvim.
-    - compile-time conditional includes depending on loaded-plugins... e.g. everthing to do with which-key should be in which-key all mappings in mappings... all options in options...
+    - Continue refactor of modules
     - Make window-quit actually close instead...?
+    - Same for buffers close instead of quit...?
     - Read Language support in Neovim documentation before implementing each idea.
     - Variable indent based on filetypes.
     - LSP support with only lsp-config and manual installs.
     - Linter/ Formatting integration.
     - Lazy loading of plugins.
+    - Can you make conditional includes compile time... may need to start the macro magic.
     - Remap conjure <leader>E <leader>eE.
     - nvim-tree vim navigation h,j,k,l and 'A' mapping to create-dir.
     - Make nvim-tree feel more like dired.

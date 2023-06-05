@@ -19,6 +19,6 @@ ensure("lewis6991", "impatient.nvim")
 require("impatient")
 
 vim.g["aniseed#env"] = {
-	module = "config.core",
+	module = "config.init",
 	compile = true
 }

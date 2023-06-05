@@ -1,16 +1,6 @@
 (module config.mappings
-  {require {a    aniseed.core
-            nvim aniseed.nvim}})
-
-(defn set-keymaps! [keymap-table user-opts]
-  (let [opts (if (a.nil? user-opts)
-               {:noremap true :silent true}
-               user-opts)]
-    (each [_ mapping (ipairs keymap-table)]
-      (nvim.set_keymap (. mapping 1)
-                       (. mapping 2)
-                       (. mapping 3)
-                       opts))))
+  {autoload {c    config.core
+             nvim aniseed.nvim}})
 
 (set nvim.g.mapleader " ")
 (set nvim.g.maplocalleader " ")
@@ -42,4 +32,4 @@
    [:t :<C-k> "<C-\\><C-n><C-w>k"]
    [:t :<C-l> "<C-\\><C-n><C-w>l"]])
 
-(set-keymaps! base-keymaps)
+(c.set-keymaps base-keymaps)
