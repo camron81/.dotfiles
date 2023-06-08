@@ -1,6 +1,7 @@
 (module config.mappings
   {autoload {c    config.core
              nvim aniseed.nvim}})
+(import-macros {: plugin-loadable?} :macros)
 
 (set nvim.g.mapleader " ")
 (set nvim.g.maplocalleader " ")
@@ -33,3 +34,26 @@
    [:t :<C-l> "<C-\\><C-n><C-w>l"]])
 
 (c.set-keymaps base-keymaps)
+
+(when (plugin-loadable? :nvim-tree)
+  (c.set-keymaps [[:n :<leader>fe ":NvimTreeToggle<cr>"]]))
+
+(when (plugin-loadable? :packer)
+  (c.set-keymaps [[:n :<leader>pc ":PackerClean<cr>"]
+                  [:n :<leader>ps ":PackerSync<cr>"]
+                  [:n :<leader>pS ":PackerStatus<cr>"]]))
+
+   ; (which-key.register
+   ;   {:f {:f ["<cmd>Telescope find_files hidden=true<cr>" "find files"]
+   ;        :r ["<cmd>Telescope oldfiles hidden=true<cr>" "recent files"]}
+   ;    :b {:f ["<cmd>Telescope buffers<cr>" "find buffers"]}
+   ;    :s {:name "search"
+   ;        :c ["<cmd>Telescope commands<cr>" "commands"]
+   ;        :f ["<cmd>Telescope filetypes<cr>" "filetypes"]
+   ;        :g ["<cmd>Telescope live_grep<cr>" "grep"]
+   ;        :k ["<cmd>Telescope keymaps<cr>" "keymaps"]
+   ;        :m ["<cmd>Telescope man_pages sections=ALL<cr>" "man pages"]
+   ;        :o ["<cmd>Telescope vim_options<cr>" "vim options"]
+   ;        :s ["<cmd>Telescope current_buffer_fuzzy_find<cr>" "search"]
+   ;        :t ["<cmd>Telescope treesitter<cr>" "treesitter"]}}
+   ;   {:prefix "<leader>"})))

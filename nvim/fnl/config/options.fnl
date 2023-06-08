@@ -1,6 +1,7 @@
 (module config.options
-  {autoload {c config.core
+  {autoload {c    config.core
              nvim aniseed.nvim}})
+(import-macros {: plugin-loadable?} :macros)
 
 (def- base-options
   {:clipboard "unnamedplus"
@@ -26,10 +27,14 @@
   
 (c.set-options base-options)
 
-(when (c.plugin-loaded? "nvim-tree")
+(when (plugin-loadable? :conjure.main)
+  (set nvim.g.conjure#filetype#scheme "conjure.client.guile.socket")
+  (set nvim.g.conjure#client#guile#socket#pipename "/home/ethan/guile.socket"))
+
+(when (plugin-loadable? :kanagawa)
+  (set nvim.o.termguicolors true))
+
+(when (plugin-loadable? :nvim-tree)
   (set nvim.g.loaded_netrw 1)
   (set nvim.g.netrwPlugin 1)
   (set nvim.o.autochdir true))
-
-(when (c.plugin-loaded? "theme")
-  (c.set-options {:termguicolors true}))

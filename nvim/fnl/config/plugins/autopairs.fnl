@@ -1,11 +1,11 @@
 (module config.plugins.autopairs)
+(import-macros {: safe-require} :macros)
 
 (def- lisps [:clojure :fennel :lisp :scheme :scheme.guile])
 
-(let [(ok? autopairs) (pcall require :nvim-autopairs)]
-  (if ok?
-    (do (autopairs.setup)
-        (tset (. (autopairs.get_rule "'") 1) :not_filetypes lisps)
-        (tset (autopairs.get_rule "`") :not_filetypes lisps))
-    (print "config error: nvim-autopairs plugin could not be loaded")))
-
+(let [autopairs (safe-require :nvim-autopairs)]
+  (let [quote-rule (autopairs.get_rule "'")
+        quasi-rule (autopairs.get_rule "`")]
+    (autopairs.setup)
+    (tset (. quote-rule 1) :not_filetypes lisps)
+    (tset quasi-rule :not_filetypes lisps)))

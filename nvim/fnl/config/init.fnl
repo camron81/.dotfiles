@@ -1,4 +1,4 @@
 (module config.init
-  {require {plugins config.plugins
-            options config.options
-            keymaps config.mappings}})
+  {require {options  config.options
+            mappings config.mappings
+            plugins  config.plugins}})
