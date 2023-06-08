@@ -16,7 +16,6 @@
 
 (define command-options
   '((install  (single-char #\i))
-    (update   (single-char #\u))
     (help     (single-char #\h))))
 
 (define help-text

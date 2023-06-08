@@ -1,14 +1,12 @@
 TODO:
   Neovim:
-    - Make all mappings in mappings.fnl, make all namings done in which-key.
-    - Make window-quit actually close instead...?
-    - Same for buffers close instead of quit...?
     - Read Language support in Neovim documentation before implementing each idea.
     - Variable indent based on filetypes.
     - LSP support with only lsp-config and manual installs.
     - Linter/ Formatting integration.
     - Lazy loading of plugins.
     - Remap conjure <leader>E <leader>eE.
+    - Prompt for man page section to search..
     - nvim-tree vim navigation h,j,k,l and 'A' mapping to create-dir.
     - Make nvim-tree feel more like dired.
     - color theme selection...
@@ -24,6 +22,7 @@ TODO:
 Guix:
   Base: 
     - Resolve wifi driver issue if possible [ ]
+    - tty override isn't working anymore [ ]
 
   Home:
     - Bash ignore commands in history (exit, clear) [ ]

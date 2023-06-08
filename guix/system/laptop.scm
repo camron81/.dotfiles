@@ -1,8 +1,6 @@
 (use-modules (system base)
              (gnu))
 
-(use-package-modules linux)
-
 (operating-system
   (inherit %base-operating-system)
   (host-name "laptop")

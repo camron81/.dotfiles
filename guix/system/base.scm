@@ -60,8 +60,8 @@
     (services 
       (append
         (modify-services %base-services
-          (delete mingetty-service-type)
           (delete console-font-service-type)
+          (delete mingetty-service-type)
           (login-service-type config =>
                               (login-configuration
                                 (inherit config)
@@ -82,7 +82,7 @@
                    (map (lambda (tty)
                           (cons tty %default-console-font))
                         '("tty1" "tty2" "tty3")))
-      
+
           (service mingetty-service-type
                    (mingetty-configuration (tty "tty1")
                                            (auto-login "ethan")))
@@ -90,7 +90,7 @@
                    (mingetty-configuration (tty "tty2")))
           (service mingetty-service-type
                    (mingetty-configuration (tty "tty3")))
-      
+
           polkit-wheel-service
       
           fontconfig-file-system-service
