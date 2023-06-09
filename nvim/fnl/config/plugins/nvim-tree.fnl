@@ -1,5 +1,4 @@
-(module config.plugins.nvim-tree
-  {autoload {nvim aniseed.nvim}})
+(module config.plugins.nvim-tree)
 (import-macros {: safe-require} :macros)
 
 (let [webdev-icons (safe-require :nvim-web-devicons)

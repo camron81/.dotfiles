@@ -31,6 +31,9 @@
   (set nvim.g.conjure#filetype#scheme "conjure.client.guile.socket")
   (set nvim.g.conjure#client#guile#socket#pipename "/home/ethan/guile.socket"))
 
+(when (plugin-loadable? :cmp)
+  (set nvim.o.completeopt "menuone,noselect"))
+
 (when (plugin-loadable? :kanagawa)
   (set nvim.o.termguicolors true))
 

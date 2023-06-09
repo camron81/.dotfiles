@@ -1,5 +1,4 @@
-(module config.plugins.which-key
-  {autoload {nvim aniseed.nvim}})
+(module config.plugins.which-key)
 (import-macros {: safe-require : plugin-loadable?} :macros)
 
 (def- which-key (safe-require :which-key))
@@ -30,7 +29,11 @@
          :t {:name "terminal"
              :m "maximized"
              :s "horizontal split"
-             :v "vertical split"}}
+             :v "vertical split"}
+         :c {:name "checkers"
+             :s {:name "spelling"
+                 :g "Great Britain"
+                 :u "USA"}}}
         {:prefix "<leader>"}))) 
 
 (when (plugin-loadable? :conjure.main)
@@ -47,16 +50,26 @@
     {:f {:e "file explorer"}}
     {:prefix "<leader>"}))
 
+(when (plugin-loadable? :packer)
+  (which-key.register
+    {:p {:name "packer"
+         :c "clean"
+         :s "sync"
+         :S "status"}}
+    {:prefix "<leader>"}))
+
 (when (plugin-loadable? :telescope)
-  {:f {:f "find files"
-       :r "recent files"}}
-  :b {:f "find buffers"}
-  :s {:name "search"
-      :c "commands"
-      :f "filetypes"
-      :g "grep"
-      :k "keymaps"
-      :m "man pages"
-      :o "vim options"
-      :s "search in file"
-      :t "treesitter"})
+  (which-key.register
+    {:f {:f "find files"
+         :r "recent files"}
+     :b {:f "find buffers"}
+     :s {:name "search"
+         :c "commands"
+         :f "filetypes"
+         :g "grep"
+         :k "keymaps"
+         :m "man pages"
+         :o "vim options"
+         :s "search in file"
+         :t "treesitter"}}
+    {:prefix "<leader>"}))

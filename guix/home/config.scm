@@ -44,13 +44,12 @@
               (simple-service 'setup-environment-variables-service
                               home-environment-variables-service-type
                               `(("GUIX_USER_PROFILES" . "$XDG_DATA_HOME/guix-profiles")
-                                ; sort ls output by dotfiles first
-                                ("LC_COLLATE" . "C")
                                 ; default applications
                                 ("EDITOR" . "nvim")
                                 ("BROWSER" . "firefox")
                                 ; xdg base directory specification
-                                ("HISTFILE" . "$XDG_STATE_HOME/bash/history")))
+                                ("HISTFILE" . "$XDG_STATE_HOME/bash/history")
+                                ("CARGO_HOME" . "$XDG_DATA_HOME/cargo")))
 
               (service home-bash-service-type
                   (home-bash-configuration

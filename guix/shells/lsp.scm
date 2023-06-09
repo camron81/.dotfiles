@@ -1,8 +1,7 @@
 (specifications->manifest
-  '(; Mason
+  '(; General
     "curl"
+    "gcc-toolchain"
     "unzip"
     ; bash-ls
-    "node"
-    ;clangd
-    "clang"))
+    "node"))

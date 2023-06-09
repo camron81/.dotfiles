@@ -56,7 +56,10 @@
    [:t :<C-h> "<C-\\><C-n><C-w>h"]
    [:t :<C-j> "<C-\\><C-n><C-w>j"]
    [:t :<C-k> "<C-\\><C-n><C-w>k"]
-   [:t :<C-l> "<C-\\><C-n><C-w>l"]])
+   [:t :<C-l> "<C-\\><C-n><C-w>l"]
+   ; Checkers
+   [:n :<leader>csg ":set spell! spelllang=en_gb<cr>"]
+   [:n :<leader>csu ":set spell! spelllang=en_us<cr>"]])
 
 (c.set-keymaps base-keymaps)
 

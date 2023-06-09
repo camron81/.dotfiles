@@ -1,5 +1,4 @@
-(module config.plugins.telescope
-  {autoload {c config.core}})
+(module config.plugins.telescope)
 (import-macros {: safe-require} :macros)
 
 (let [telescope (safe-require :telescope)

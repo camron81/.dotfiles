@@ -1,15 +1,16 @@
 TODO:
   Neovim:
-    - Read Language support in Neovim documentation before implementing each idea.
     - Variable indent based on filetypes.
-    - LSP support with only lsp-config and manual installs.
-    - Linter/ Formatting integration.
-    - Lazy loading of plugins.
+    - Linter
+    - Formatting
+    - DAP
+    - LSP keymaps
     - Remap conjure <leader>E <leader>eE.
     - Prompt for man page section to search..
     - nvim-tree vim navigation h,j,k,l and 'A' mapping to create-dir.
     - Make nvim-tree feel more like dired.
     - color theme selection...
+    - Lazy loading of plugins.
     Plugins:
       - leap.nvim?
       - project-nvim?
