@@ -30,6 +30,7 @@
   (map dotfiles-symlink 
        '(("foot/foot.ini")
          ("guix/channels.scm")
+         ("npm/npmrc")
          ;("nvim/init.lua")
          ;("nvim/fnl" #t)
          ("sway/config"))))
@@ -49,7 +50,8 @@
                                 ("BROWSER" . "firefox")
                                 ; xdg base directory specification
                                 ("HISTFILE" . "$XDG_STATE_HOME/bash/history")
-                                ("CARGO_HOME" . "$XDG_DATA_HOME/cargo")))
+                                ("CARGO_HOME" . "$XDG_DATA_HOME/cargo")
+                                ("NPM_CONFIG_USERCONFIG" . "$XDG_CONFIG_HOME/npm/npmrc")))
 
               (service home-bash-service-type
                   (home-bash-configuration

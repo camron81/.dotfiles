@@ -7,6 +7,13 @@
 (use-service-modules dbus desktop networking pm)
 (use-package-modules certs linux ncurses terminals version-control vim wm)
 
+(define (autologin-to-tty config tty user)
+  (if (string=? tty (mingetty-configuration-tty config))
+    (mingetty-configuration
+      (inherit config)
+      (auto-login user))
+    config))
+
 (define-public %base-operating-system
   (operating-system
     (host-name "guix")
@@ -58,7 +65,27 @@
                 %base-packages))
 
     (services 
-      (append
+      (cons*
+        polkit-wheel-service
+      
+        fontconfig-file-system-service
+      
+        (service network-manager-service-type)
+        (service wpa-supplicant-service-type)
+
+        (service polkit-service-type)
+        (service elogind-service-type)
+        (service dbus-root-service-type)
+
+        (service ntp-service-type)
+
+        (service tlp-service-type
+          (tlp-configuration (cpu-boost-on-ac? #t)
+                             (wifi-pwr-on-bat? #f)))
+        (service thermald-service-type)
+
+        (udev-rules-service 'brightnessctl-udev-rules brightnessctl)
+        
         (modify-services %base-services
           (delete console-font-service-type)
           (delete mingetty-service-type)
@@ -66,6 +93,9 @@
                               (login-configuration
                                 (inherit config)
                                 (motd "")))
+          (mingetty-service-type config =>
+                                 (autologin-to-tty
+                                   config "tty1" "ethan"))
           (guix-service-type config =>
                              (guix-configuration
                                (inherit config)
@@ -75,40 +105,6 @@
                                (authorized-keys
                                  (cons* (plain-file "nonguix.pub" 
                                                     "(public-key (ecc (curve Ed25519) (q #C1FD53E5D4CE971933EC50C9F307AE2171A2D3B52C804642A7A35F84F3A4EA98#)))")
-                                        %default-authorized-guix-keys)))))
+                                        %default-authorized-guix-keys)))))))
       
-        (list
-          (service console-font-service-type
-                   (map (lambda (tty)
-                          (cons tty %default-console-font))
-                        '("tty1" "tty2" "tty3")))
-
-          (service mingetty-service-type
-                   (mingetty-configuration (tty "tty1")
-                                           (auto-login "ethan")))
-          (service mingetty-service-type
-                   (mingetty-configuration (tty "tty2")))
-          (service mingetty-service-type
-                   (mingetty-configuration (tty "tty3")))
-
-          polkit-wheel-service
-      
-          fontconfig-file-system-service
-      
-          (service network-manager-service-type)
-          (service wpa-supplicant-service-type)
-      
-          (service polkit-service-type)
-          (service elogind-service-type)
-          (service dbus-root-service-type)
-      
-          (service ntp-service-type)
-      
-          (service tlp-service-type
-                   (tlp-configuration (cpu-boost-on-ac? #t)
-                                      (wifi-pwr-on-bat? #f)))
-          (service thermald-service-type)
-
-          (udev-rules-service 'brightnessctl-udev-rules brightnessctl))))
-
     (name-service-switch %mdns-host-lookup-nss)))

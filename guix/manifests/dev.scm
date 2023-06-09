@@ -5,5 +5,6 @@
     "ripgrep" 
     "wl-clipboard"      
     ;; Automatic Guile Repls
-    "direnv"))
-    
+    "direnv"
+    ;; bash-language-server
+    "node"))
