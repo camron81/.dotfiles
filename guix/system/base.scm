@@ -87,8 +87,6 @@
         (udev-rules-service 'brightnessctl-udev-rules brightnessctl)
         
         (modify-services %base-services
-          (delete console-font-service-type)
-          (delete mingetty-service-type)
           (login-service-type config =>
                               (login-configuration
                                 (inherit config)

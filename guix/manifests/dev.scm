@@ -6,5 +6,6 @@
     "wl-clipboard"      
     ;; Automatic Guile Repls
     "direnv"
-    ;; bash-language-server
-    "node"))
+    ;; Bash
+    "node"
+    "shellcheck"))

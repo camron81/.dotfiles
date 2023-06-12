@@ -1,3 +1,5 @@
+#!/usr/bin/env bash
+
 if [[ "$(tty)" == *"/dev/tty"* ]]; then
     export PS1='\w${GUIX_ENVIRONMENT:+ [guix]} \$ '
 else

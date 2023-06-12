@@ -4,7 +4,8 @@
 (import-macros {: plugin-loadable?} :macros)
 
 (def- base-options
-  {:clipboard "unnamedplus"
+  {:cindent true
+   :clipboard "unnamedplus"
    :expandtab true
    :guifont "MesloLGM Regular"
    :ignorecase true
@@ -12,7 +13,7 @@
    :mouse "a"
    :number true
    :pumheight 10
-   :shiftwidth 2
+   :shiftwidth 4
    :showmode false
    :showtabline 0
    :smartcase true
@@ -20,12 +21,18 @@
    :splitbelow true
    :splitright true
    :swapfile false
-   :tabstop 2
    :timeoutlen 500
    :undofile true
    :writebackup false})
-  
+
 (c.set-options base-options)
+
+(def- lisps [:clojure :fennel :janet :lisps :scheme :scheme.guile])
+(each [_ filetype (ipairs lisps)]
+  (nvim.create_autocmd 
+      "FileType"
+      {:pattern filetype
+       :command "setlocal shiftwidth=2"}))
 
 (when (plugin-loadable? :conjure.main)
   (set nvim.g.conjure#filetype#scheme "conjure.client.guile.socket")

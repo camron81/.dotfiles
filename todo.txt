@@ -1,35 +1,28 @@
 TODO:
   Neovim:
-    - Variable indent based on filetypes.
-    - Linter
-    - Formatting
-    - DAP
-    - LSP keymaps
-    - Remap conjure <leader>E <leader>eE.
-    - Prompt for man page section to search..
     - nvim-tree vim navigation h,j,k,l and 'A' mapping to create-dir.
     - Make nvim-tree feel more like dired.
+    - Remap conjure <leader>E <leader>eE.
+    - Prompt for man page section to search..
     - color theme selection...
     - Lazy loading of plugins.
     Plugins:
       - leap.nvim?
       - project-nvim?
-      - other features of doom-emacs?
       - info.vim?
       - git support (neogit/ fugutive)?
       - Compilation support?
-      - Debugging support?
-
+      - DAP/ Debugging support?
+    - LSP keymaps
+    - Formatting on save [ ]
+    - BASH IDE - bashls [X] shellcheck [X] shfmt [?]
+    - C IDE - clangd [ ], clang-check/cppcheck/gccdiag [ ], astyle/clang-format [ ]
+    - Fennel language server [ ] autoformat - fnlfmt [ ]
+	
 Guix:
-  Base: 
-    - Resolve wifi driver issue if possible [ ]
-    - tty override isn't working anymore [ ]
-
   Home:
     - Bash ignore commands in history (exit, clear) [ ]
-    - Guix redshift do not use geoclue just set as London, will this work in Wayland?? [ ]
-    - A guile script for downloading and storing Meslo Nerd Fonts for configuration, look at daviwil package for inspo [ ]
-    - blesh?
+    - Review your packages and see what you want to bring in [ ]
 
   Extra:
     - Guix Deep dive of manual [ ]
@@ -37,8 +30,10 @@ Guix:
     - Fully explore the API see how deep you can craft [ ]
 
 Desktop:
-  - Distrobox [ ]
+  - Distrobox?? is this even needed... [ ]
   - Packaging missing... [ ] 
+    - shfmt [ ]
+    - MesloLGM NerdFont [ ]
 
 Sway:
   - Manage backlight with keys [ ]
