@@ -63,6 +63,9 @@
 
 (c.set-keymaps base-keymaps)
 
+(when (plugin-loadable? :neogit)
+  (c.set-keymaps [[:n :<leader>fg ":Neogit<cr>"]]))
+
 (when (plugin-loadable? :nvim-tree)
   (c.set-keymaps [[:n :<leader>fe ":NvimTreeToggle<cr>"]]))
 
@@ -71,7 +74,12 @@
                   [:n :<leader>ps ":PackerSync<cr>"]
                   [:n :<leader>pS ":PackerStatus<cr>"]]))
 
+(defn- man-pages []
+  (let [input (vim.fn.input "Section: ")]
+    (vim.cmd (.. "Telescope man_pages sections={\"" input "\"}"))))
+
 (when (plugin-loadable? :telescope)
+  (vim.keymap.set "n" "<leader>sm" man-pages {:noremap true :silent true})
   (c.set-keymaps [[:n :<leader>ff ":Telescope find_files hidden=true<cr>"]
                   [:n :<leader>fr ":Telescope oldfiles hidden=true<cr>"]
                   [:n :<leader>bf ":Telescope buffers<cr>"]
@@ -79,7 +87,6 @@
                   [:n :<leader>sf ":Telescope filetypes<cr>"]
                   [:n :<leader>sg ":Telescope live_grep<cr>"]
                   [:n :<leader>sk ":Telescope keymaps<cr>"]
-                  [:n :<leader>sm ":Telescope man_pages sections=ALL<cr>"]
                   [:n :<leader>so ":Telescope vim_options<cr>"]
                   [:n :<leader>ss ":Telescope current_buffer_fuzzy_find<cr>"]
                   [:n :<leader>st ":Telescope treesitter<cr>"]]))

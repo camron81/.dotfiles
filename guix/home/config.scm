@@ -48,8 +48,10 @@
                                 ; default applications
                                 ("EDITOR" . "nvim")
                                 ("BROWSER" . "firefox")
+                                ("EXA_ICON_SPACING" . "2")
                                 ; xdg base directory specification
                                 ("HISTFILE" . "$XDG_STATE_HOME/bash/history")
+                                ("HISTIGNORE" . "clear:exit")
                                 ("CARGO_HOME" . "$XDG_DATA_HOME/cargo")
                                 ("NPM_CONFIG_USERCONFIG" . "$XDG_CONFIG_HOME/npm/npmrc")))
 
@@ -63,7 +65,10 @@
                     (aliases
                      '(("cp" . "cp -riv")
                        ("mv" . "mv -iv")
-                       ("rm" . "rm -iv")))))
+                       ("rm" . "rm -iv")
+                       ("mkdir" . "mkdir -vp")
+                       ("grep" . "grep --color")
+                       ("ls" . "exa --icons --group-directories-first")))))
 
               (simple-service 'xdg-config-files-service
                               home-xdg-configuration-files-service-type

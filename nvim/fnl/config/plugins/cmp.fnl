@@ -1,8 +1,6 @@
-(module config.plugins.cmp)
-(import-macros {: safe-require} :macros)
-
-(def- cmp (safe-require :cmp))
-(def- snip (safe-require :luasnip))
+(module config.plugins.cmp
+  {autoload {cmp  :cmp
+             snip :luasnip}})
 
 (def- kind_icons {:Text " "
                   :Method "m "
@@ -51,6 +49,7 @@
 (cmp.setup
   {:snippet {:expand (fn [args] (snip.lsp_expand args.body))}
    :sources [{:name "nvim_lsp"}
+             {:name "neorg"}
              {:name "conjure"}
              {:name "luasnip"}
              {:name "buffer"}

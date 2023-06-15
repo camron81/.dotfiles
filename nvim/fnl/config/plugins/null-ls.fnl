@@ -1,8 +1,7 @@
-(module config.plugins.null-ls)
-(import-macros {: safe-require} :macros)
+(module config.plugins.null-ls
+  {autoload {null-ls :null-ls}})
 
-(let [null-ls     (safe-require :null-ls)
-      actions     null-ls.builtins.code_actions
+(let [actions     null-ls.builtins.code_actions
       diagnostics null-ls.builtins.diagnostics
       formatting  null-ls.builtins.formatting
       hover       null-ls.builtins.hover

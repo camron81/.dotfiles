@@ -1,11 +1,13 @@
 (specifications->manifest
   '(;; Neovim
-    "fennel"  
-    "fd"      
-    "ripgrep" 
     "wl-clipboard"      
-    ;; Automatic Guile Repls
-    "direnv"
-    ;; Bash
-    "node"
-    "shellcheck"))
+      ; Bash
+      "node"
+      "shellcheck"
+      ; Fennel
+      "fennel"
+      ; Telescope
+      "fd"
+      "ripgrep"
+    ;; Automatic Environments
+    "direnv"))

@@ -1,4 +1,4 @@
 (specifications->manifest
-  `("gcc-toolchain"
+  '("gcc-toolchain"
     "node"
     "tree-sitter-cli"))

@@ -1,36 +1,25 @@
 TODO:
-  Neovim:
-    - nvim-tree vim navigation h,j,k,l and 'A' mapping to create-dir.
-    - Make nvim-tree feel more like dired.
-    - Remap conjure <leader>E <leader>eE.
-    - Prompt for man page section to search..
-    - color theme selection...
-    - Lazy loading of plugins.
-    Plugins:
-      - leap.nvim?
-      - project-nvim?
-      - info.vim?
-      - git support (neogit/ fugutive)?
-      - Compilation support?
-      - DAP/ Debugging support?
+ Neovim:
+    - DAP/ Debugging support?
     - LSP keymaps
     - Formatting on save [ ]
     - BASH IDE - bashls [X] shellcheck [X] shfmt [?]
     - C IDE - clangd [ ], clang-check/cppcheck/gccdiag [ ], astyle/clang-format [ ]
     - Fennel language server [ ] autoformat - fnlfmt [ ]
+    - Remap conjure <leader>E <leader>eE.
+    - Compilation support?
+    - Lazy loading of plugins.
 	
 Guix:
-  Home:
-    - Bash ignore commands in history (exit, clear) [ ]
-    - Review your packages and see what you want to bring in [ ]
+    - blesh?
+    - any other packages you want to bring in?
 
   Extra:
     - Guix Deep dive of manual [ ]
     - Check out rde [ ] 
     - Fully explore the API see how deep you can craft [ ]
+    - See if you can make your guix configuration super modular [ ]
 
-Desktop:
-  - Distrobox?? is this even needed... [ ]
   - Packaging missing... [ ] 
     - shfmt [ ]
     - MesloLGM NerdFont [ ]

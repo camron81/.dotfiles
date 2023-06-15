@@ -1,7 +1,6 @@
-(module config.plugins.which-key)
-(import-macros {: safe-require : plugin-loadable?} :macros)
-
-(def- which-key (safe-require :which-key))
+(module config.plugins.which-key
+  {autoload {which-key :which-key}})
+(import-macros {: plugin-loadable?} :macros)
 
 (do (which-key.setup
       (which-key.register
@@ -43,6 +42,11 @@
      :g {:name "go-to"}
      :l {:name "conjure-log"}
      :r {:name "conjure-reset"}}
+    {:prefix "<leader>"}))
+
+(when (plugin-loadable? :neogit)
+  (which-key.register
+    {:f {:g "git status"}}
     {:prefix "<leader>"}))
 
 (when (plugin-loadable? :nvim-tree)

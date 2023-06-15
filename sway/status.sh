@@ -1,3 +1,5 @@
+#!/usr/bin/env bash
+
 bat_status="$(cat /sys/class/power_supply/BAT0/status)"
 bat_charge="$(cat /sys/class/power_supply/BAT0/capacity)"
 

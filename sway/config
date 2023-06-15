@@ -121,9 +121,6 @@ mode "resize" {
 }
 bindsym $mod+r mode "resize"
 
-exec swayidle -w \
-  timeout 300 'swaymsg "output * power off"' resume 'swaymsg "output * power on"'
-
 bar {
     position top
 
@@ -138,3 +135,8 @@ bar {
         inactive_workspace #CA6368 #CA6368 #D8D8D8
     }
 }
+
+exec swayidle -w \
+  timeout 300 'swaymsg "output * power off"' resume 'swaymsg "output * power on"'
+
+exec mega-sync

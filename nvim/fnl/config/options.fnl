@@ -27,8 +27,8 @@
 
 (c.set-options base-options)
 
-(def- lisps [:clojure :fennel :janet :lisps :scheme :scheme.guile])
-(each [_ filetype (ipairs lisps)]
+(def- languages [:clojure :fennel :janet :lisp :norg :scheme :scheme.guile])
+(each [_ filetype (ipairs languages)]
   (nvim.create_autocmd 
       "FileType"
       {:pattern filetype
@@ -43,6 +43,14 @@
 
 (when (plugin-loadable? :kanagawa)
   (set nvim.o.termguicolors true))
+
+(when (plugin-loadable? :neorg)
+  (c.set-options {:conceallevel 2
+                  :foldlevelstart 99})
+  (nvim.create_autocmd
+    "FileType"
+    {:pattern "norg"
+     :command "setlocal textwidth=80"}))
 
 (when (plugin-loadable? :nvim-tree)
   (set nvim.g.loaded_netrw 1)
