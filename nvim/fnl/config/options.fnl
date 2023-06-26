@@ -7,7 +7,6 @@
   {:cindent true
    :clipboard "unnamedplus"
    :expandtab true
-   :guifont "MesloLGM Regular"
    :ignorecase true
    :linebreak true
    :mouse "a"
@@ -50,7 +49,7 @@
   (nvim.create_autocmd
     "FileType"
     {:pattern "norg"
-     :command "setlocal textwidth=80"}))
+     :command "setlocal textwidth=80 | set spell! spelllang=en_gb"}))
 
 (when (plugin-loadable? :nvim-tree)
   (set nvim.g.loaded_netrw 1)

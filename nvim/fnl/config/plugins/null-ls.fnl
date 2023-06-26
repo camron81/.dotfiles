@@ -9,5 +9,5 @@
   (null-ls.setup 
     {:sources [; Bash
                actions.shellcheck
-               diagnostics.shellcheck]}))
-               ;formatting.shfmt
+               diagnostics.shellcheck
+               formatting.shfmt]}))

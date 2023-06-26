@@ -1,9 +1,11 @@
 TODO:
  Neovim:
+    - Make nvim-tree work exactly like dired.
+    - Spellcheck on neorg buffers.
+    - Clever text wrapping on neorg buffers. What about prog buffers?
     - DAP/ Debugging support?
     - LSP keymaps
     - Formatting on save [ ]
-    - BASH IDE - bashls [X] shellcheck [X] shfmt [?]
     - C IDE - clangd [ ], clang-check/cppcheck/gccdiag [ ], astyle/clang-format [ ]
     - Fennel language server [ ] autoformat - fnlfmt [ ]
     - Remap conjure <leader>E <leader>eE.
@@ -12,7 +14,10 @@ TODO:
 	
 Guix:
     - blesh?
-    - any other packages you want to bring in?
+    - Hardened Guix system?
+    - any other packages you want on this system?
+    - Make modules that export manifests... system/ home services to set up your apps exactly how you want...
+    - Is that going too far and becoming too modular???
 
   Extra:
     - Guix Deep dive of manual [ ]
@@ -21,8 +26,10 @@ Guix:
     - See if you can make your guix configuration super modular [ ]
 
   - Packaging missing... [ ] 
+    - bash-language-server [ ]
+    - fennel-language-server [ ]
     - shfmt [ ]
-    - MesloLGM NerdFont [ ]
+    - scheme-language-server [ ]
 
 Sway:
   - Manage backlight with keys [ ]

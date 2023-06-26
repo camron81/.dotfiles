@@ -6,7 +6,9 @@
           :core.completion
           {:config {:engine "nvim-cmp"}}
           :core.concealer
-          {:config {:icon_preset "diamond"}}
+          {:config {:icon_preset "diamond"
+                    :icons {:ordered 
+                            {"level_1" {:icon tostring}}}}}
           :core.dirman 
           {:config {:workspaces 
                     {:notes "~/notes"

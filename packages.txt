@@ -6,13 +6,11 @@ blesh
 cmake
 distrobox
 epiphany
-exa
 janet
 ledger
 lf
 libtool
 man-pages
-megasync => megacmd::guix (could actually be better)
 picard
 qbittorrent
 racket

@@ -4,7 +4,7 @@
              (gnu services)
              (gnu packages gnome)
              (gnu packages gnome-xyz)
-             (gnu packages)
+             (packages fonts)
              (guix gexp))
 
 (define (dotfiles-path-append path)
@@ -36,10 +36,10 @@
          ("sway/config"))))
 
 (home-environment 
-  (packages 
-    (list 
-      bibata-cursor-theme 
-      hicolor-icon-theme))
+  (packages (list
+              bibata-cursor-theme
+              font-nerd-meslo
+              hicolor-icon-theme))
 
   (services (list 
               (simple-service 'setup-environment-variables-service

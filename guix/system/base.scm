@@ -1,11 +1,13 @@
 (define-module (system base))
 
 (use-modules (gnu)
+             (guix channels)
+             (guix inferior)
              (nongnu packages linux)
              (nongnu system linux-initrd))
 
 (use-service-modules dbus desktop networking pm)
-(use-package-modules certs linux ncurses terminals version-control vim wm)
+(use-package-modules certs linux version-control wm)
 
 (define (autologin-to-tty config tty user)
   (if (string=? tty (mingetty-configuration-tty config))
@@ -21,7 +23,19 @@
     (locale "en_GB.utf8")
     (keyboard-layout (keyboard-layout "gb"))
 
-    (kernel linux)
+    (kernel
+      (let* ((channels
+               (list (channel
+                       (name 'guix)
+                       (url "https://git.savannah.gnu.org/git/guix.git")
+                       (commit "384381f0f900af17c9ec703ebe35b8b3445750f3"))
+                     (channel
+                       (name 'nonguix)
+                       (url "https://gitlab.com/nonguix/nonguix")
+                       (commit "e5fdf073690dc410aa9f6f30515d5cfb61b373df"))))
+             (inferior
+               (inferior-for-channels channels)))
+        (car (lookup-inferior-packages inferior "linux" "6.3.7"))))
 
     (initrd (lambda (file-systems . rest)
               (apply microcode-initrd file-systems
@@ -54,10 +68,7 @@
 
     (packages (cons*
                 brightnessctl
-                foot
                 git
-                ncurses
-                neovim
                 nss-certs
                 sway
                 swaybg
