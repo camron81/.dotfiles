@@ -10,4 +10,7 @@
     {:sources [; Bash
                actions.shellcheck
                diagnostics.shellcheck
-               formatting.shfmt]}))
+               formatting.shfmt
+               ; C
+               diagnostics.clang_check
+               formatting.clang_format]}))

@@ -1,5 +1,5 @@
-(use-modules (system base)
-             (gnu))
+(use-modules (gnu)
+             (system base))
 
 (operating-system
   (inherit %base-operating-system)

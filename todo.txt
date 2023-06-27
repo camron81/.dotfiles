@@ -1,34 +1,46 @@
 TODO:
  Neovim:
-    - Make nvim-tree work exactly like dired.
-    - Spellcheck on neorg buffers.
-    - Clever text wrapping on neorg buffers. What about prog buffers?
-    - DAP/ Debugging support?
-    - LSP keymaps
+    - Make nvim-tree work exactly like dired [ ]
+    - Clever text wrapping on neorg buffers [ ]
     - Formatting on save [ ]
-    - C IDE - clangd [ ], clang-check/cppcheck/gccdiag [ ], astyle/clang-format [ ]
-    - Fennel language server [ ] autoformat - fnlfmt [ ]
+    - LSP keymaps [ ]
+    - DAP/ Debugging support [ ]
+    - Fennel IDE: language server [ ] fnlfmt [ ]
     - Remap conjure <leader>E <leader>eE.
-    - Compilation support?
-    - Lazy loading of plugins.
+    - Compilation support [ ]
+    - Lazy loading of plugins [ ]
 	
 Guix:
-    - blesh?
-    - Hardened Guix system?
-    - any other packages you want on this system?
-    - Make modules that export manifests... system/ home services to set up your apps exactly how you want...
-    - Is that going too far and becoming too modular???
+    - blesh [ ]
+    - Hardened Guix system as much as is reasonable [ ]
+        - hidepid 2.4 [ ]
+        - Other kernel pointer leaks 2.6 [ ]
+        - Restricting access to sysfs 2.7 [ ]
+        - 2.10 lkrg package on Guix, may need to overwrite libre kernel [ ]
+        - 3 MAC Selinux or AppArmor [ ]
+        - 4.1 bubblewrap [ ]
+        - 8.2 restrincting su [ ]
+        - 8.5 Increasing hashing rounds [ ]
+        - Guix Containers for browser... [ ] 
+        - 9.0 Firewall iptables or nftables [ ]
+        - 10.1 Hostnames and usernames [ ]
+        - 10.4 MAC address changer service [ ]
+        - 10.5.3 TCP initial sequence numbers [ ]
+        - 10.5.4 Time synchronisation [ ]
+        - 11.2 change umask to 0077 ... means changing /etc/profile [ ]
+        - 17 Partition and mount options ... edit /etc/fstab [ ]
+        - 18.1 jitterentropy-rngd ... ensure this adds file before doing sysctl and kernel modules, otherwise add manually [ ]
+            - the jitterentropy-rngd uses the gnu build-system instead of kernel-module... you'll need to try and work this [ ]
+        - You've made it to 21 [ ]
 
   Extra:
     - Guix Deep dive of manual [ ]
     - Check out rde [ ] 
     - Fully explore the API see how deep you can craft [ ]
-    - See if you can make your guix configuration super modular [ ]
 
   - Packaging missing... [ ] 
     - bash-language-server [ ]
     - fennel-language-server [ ]
-    - shfmt [ ]
     - scheme-language-server [ ]
 
 Sway:

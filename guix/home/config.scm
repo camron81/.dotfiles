@@ -4,8 +4,8 @@
              (gnu services)
              (gnu packages gnome)
              (gnu packages gnome-xyz)
-             (packages fonts)
-             (guix gexp))
+             (guix gexp)
+             (gextra packages fonts))
 
 (define (dotfiles-path-append path)
   (string-append (getenv "HOME") "/.dotfiles/" path))

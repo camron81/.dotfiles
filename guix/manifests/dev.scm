@@ -1,18 +1,13 @@
-(use-modules (gnu packages)
-             (packages shfmt))
+(use-modules (gnu packages))
 
-(concatenate-manifests
-  (list
-    (specifications->manifest
-      '(; Bash
-        "node" ; bash-language-server only
-        "shellcheck"
-        ; C
-        "gcc-toolchain"
-        "clang-toolchain"
-        "man-pages"
-        "man-pages-posix"
-        ; Fennel
-        "fennel"))
-    (packages->manifest
-      (list shfmt))))
+(specifications->manifest
+    '(; Bash
+      "node" ; bash-language-server only
+      "shfmt"
+      "shellcheck"
+      ; C
+      "clang-toolchain"
+      "man-pages"
+      "man-pages-posix"
+      ; Fennel
+      "fennel"))

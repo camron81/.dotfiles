@@ -2,7 +2,15 @@
   {autoload {ts :nvim-treesitter.configs}})
 
 (ts.setup
-  {:ensure_installed ["bash" "ini" "janet_simple" "lua" "scheme"]
+  {:ensure_installed 
+   ["bash" 
+    "c"
+    "ini" 
+    "janet_simple" 
+    "lua" 
+    "make"
+    "scheme" 
+    "vimdoc"]
    :sync_install false
    :indent {:enable true
             :disable []}

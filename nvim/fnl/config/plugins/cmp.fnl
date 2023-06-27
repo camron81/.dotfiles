@@ -36,9 +36,9 @@
   vim_item)
 
 (defn- tab-complete [fallback]
-  (if (cmp.visible)             (cmp.select_next_item)
-      (snip.expandable)         (snip.expand)
+  (if (snip.expandable)         (snip.expand)
       (snip.expand_or_jumpable) (snip.expand_or_jump)
+      (cmp.visible)             (cmp.select_next_item)
       (fallback)))
 
 (defn- shift-tab-complete [fallback]
